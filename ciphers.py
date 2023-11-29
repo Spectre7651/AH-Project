@@ -3,14 +3,15 @@
 
 #Imports
 import random
+import csv
 
 #Global Vars
-alphabet = "QWERTYUIOPASDFGHJKLZXCVBNM"
-#AutoRun (gen messages and keys)
+alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+#AutoRun (gen messages)
 
 def autorun():
     posmessages = []
-    with open("possmessages.txt","r") as posmessages_file:
+    with open("messages.txt","r") as posmessages_file:
         for line in posmessages_file:
             posmessages.append((line.strip()).upper())
     print(posmessages) #Debug
@@ -30,8 +31,40 @@ def caesarcipher(alphabet):
         encmessage += newchar
     return encmessage
 
-    
+#Moving Key Caesar Cipher
+def movingkeycipher(alphabet):
+    message,key = autorun()
+    key = 1 #Startkey
+    encmessage = ""
+    for character in message:
+        pos = alphabet.find(character)
+        newpos = (pos + key) % 26
+        newchar = alphabet[newpos]
+        encmessage += newchar
+        key += 1 #Adds one to the key as every letter is encrypted
+        print(key) #Debug
+    return encmessage
+        
+def supercipherment(alphabet):
+    message,key = autorun()
+    crib = {}
+    with open("crib.txt","r") as cribfile:
+        data = csv.reader(cribfile)
+        for row in data:
+            crib[int(row[0])] = int(row[1])
+    print(crib)
+    #Need to find the letter positions for each character
+    pos = []
+    letter = []
+    for letter in message:
+        for chars in range(len(alphabet)):
+
+            if alphabet[chars] == letter:
+                pos.append(chars)
+                letter.append(letter)
 
 #debug
 
 print(caesarcipher(alphabet))
+print(movingkeycipher(alphabet))
+supercipherment(alphabet)
