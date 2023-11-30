@@ -1,6 +1,6 @@
 # Alfie Ford - AH Project Repository
 
-### This is a daily sync of my laptop files for the project
+### This is a daily sync of my laptop files for the project.
 
 #### Files:
 * ciphers.py is a implimentation of the three ciphers im using for this project
