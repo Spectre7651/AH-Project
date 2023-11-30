@@ -55,13 +55,22 @@ def supercipherment(alphabet):
     print(crib)
     #Need to find the letter positions for each character
     pos = []
-    letter = []
+    letters = []
     for letter in message:
         for chars in range(len(alphabet)):
-
             if alphabet[chars] == letter:
-                pos.append(chars)
-                letter.append(letter)
+                pos.append(chars+1)
+                letters.append(letter)
+    print(pos)
+    print(letters)
+    #Need to swap letters for letter in crib (bin search)
+    halfmessage = ""
+    for i in range(len(message)):
+        oldpos = int(pos[i])
+        newpos = crib[oldpos]
+        print(newpos)
+        halfmessage += alphabet[newpos-1]
+    print(halfmessage)
 
 #debug
 
