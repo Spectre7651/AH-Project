@@ -91,6 +91,6 @@ def supercipherment():
 
 #debug
 
-print(caesarcipher())
-print(movingkeycipher())
-print(supercipherment())
+#print(caesarcipher())
+#print(movingkeycipher())
+#print(supercipherment())

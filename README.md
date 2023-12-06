@@ -9,6 +9,11 @@
 * The directory templates holds the html for the project.
 * crib.txt holds the crib for the superencipherment mode of the program
 * crib(hr).txt is the human readable version of the crib with actaul letters not numbers
+* userauth.py checks the user details and scores etc
+* userdetails.txt stores the account details
+
+Note that the html files dont need to have the .html extension in the filename (a quirk of linux)
+
 ### Links
 * [Project Plan](https://docs.google.com/document/d/1h5udJEeES8V8zh6XGXwm2H_6FQNdKKWM5wVFrd1cyIo/edit?usp=sharing) holds all the planning and specs for the project.
 * [Flask Reference](https://www.geeksforgeeks.org/flask-tutorial/), this helps me with the sdd-wdd bridge
