@@ -1,0 +1,14 @@
+/*This is the background code for all of the server pages
+ If you edit this it will take effect on all pages that listen to the <html id="main">  tag */
+
+#main {
+background-image: url("/background");
+background-repeat: no-repeat;
+background-size: cover;
+}
+body {
+
+font-family:Arial, sans-serif;
+
+
+}

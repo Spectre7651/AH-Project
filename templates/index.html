@@ -1,6 +1,6 @@
 <html id="main">
-<head id="main">
-<link rel="stylesheet" href="style.css">
+<head>
+<link rel="stylesheet" href="../style.css">
 </head>
 <body id="login-loginform">
 <style>
@@ -21,7 +21,6 @@ padding: 20px
 }
 
 </style>
-<img src="" id="">
 <style> 
 input[type=text] {
   width: 50%;
@@ -47,14 +46,7 @@ input[type=password]{
 text-align: center ;
 font-family:Arial, sans-serif;
 }
-#fcorplogo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 40%;
-  float: center;
-  overflow: auto ;
-}
+
 #submit{
  width:20%;
  padding:5px ;
@@ -67,10 +59,6 @@ font-family:Arial, sans-serif;
 
 
 }
-#copyright{
-float: center ;
-font-family:Arial, sans-serif;
-}
 
 input[type=text]:focus {
   background-color: lightblue;
@@ -82,6 +70,7 @@ input[type=password]:focus{
 <form action="#" method="GET" autocomplete="off" accept-charset="utf-8">
 
 <h2 id="h2-login">CipherSchool Login</h2>
+<h3>{{error}}</h3>
 <input type="text" name="uname" placeholder="Username" id="uname"><br>
 <input type="password" name="passwd" placeholder="Password" id="passwd"><br>
 <input type="submit"id="submit" label="Login">

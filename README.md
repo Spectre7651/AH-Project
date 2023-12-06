@@ -12,9 +12,9 @@
 * userauth.py checks the user details and scores etc
 * userdetails.txt stores the account details
 
-Note that the html files dont need to have the .html extension in the filename (a quirk of linux)
 
 ### Links
 * [Project Plan](https://docs.google.com/document/d/1h5udJEeES8V8zh6XGXwm2H_6FQNdKKWM5wVFrd1cyIo/edit?usp=sharing) holds all the planning and specs for the project.
 * [Flask Reference](https://www.geeksforgeeks.org/flask-tutorial/), this helps me with the sdd-wdd bridge
 * [W3Schools Reference](https://www.w3schools.com/python/default.asp), as useful as always
+* [Flask HTTP](https://www.geeksforgeeks.org/flask-http-method/)

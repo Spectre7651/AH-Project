@@ -11,19 +11,16 @@ def checkuserdetails(uname,passwd):
         data = csv.reader(userdetails_file)
         for row in data:
             authunames.append(row[0])
-            authunames.append(row[1])
+            authpasswds.append(row[1])
             accountname.append(row[2])
+            #print(authunames,authpasswds,accountname)
     #Check if the user details supplied is correct
     for i in range(len(authunames)):
         if uname == authunames[i] and passwd == authpasswds[i]:
             return "AUTHORISED",accountname[i]
             break
         elif uname == authunames[i] and passwd != authpasswds[i]:
-            return "INC-PASSWD"
-        elif uname != authunames[i] and passwd == authpasswds[i]:
-            return "INC-UNAME"
+            return "INC-PASSWD"," "
         else:
             #Return User Not Found (UNF)
-            return "UNF"
-        
-
+            return "UNF"," "
