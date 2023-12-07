@@ -2,6 +2,10 @@
 
 ## This is a daily sync of my laptop files for the project.
 
+## Notes
+To use a bin search and bubble sort I could make a leaderboard with the person with the most points the quickest at the top.
+
+
 ### Files:
 * ciphers.py is a implimentation of the three ciphers i'm using for this project
 * app.py is the main program

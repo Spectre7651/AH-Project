@@ -7,8 +7,98 @@ background-repeat: no-repeat;
 background-size: cover;
 }
 body {
-
 font-family:Arial, sans-serif;
-
-
 }
+
+/* This section codes for the login screen */
+#login-loginform {
+    position: absolute;
+    top: 70%;
+    width: 30%;
+    left: 35%;
+    top: 20%;
+    background-color: lightgrey;
+    text-align: center ;
+    border: 2px white;
+    border-radius: 10px;
+  }
+  form {
+  padding: 20px
+  
+  }
+
+input[type=text] {
+    width: 50%;
+    padding: 5px ;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid darkgrey;
+    outline: none;
+    float: center;
+    font-family:Arial, sans-serif;
+  }
+  input[type=password]{
+    width: 50%;
+    padding: 5px ;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid darkgrey;
+    outline: none;
+    float: center;
+    font-family:Arial,sans-serif;  
+  }
+  #h2-login {
+  text-align: center ;
+  font-family:Arial, sans-serif;
+  }
+  
+  #submit{
+   width:20%;
+   padding:5px ;
+   margin: 8px 0;
+   box-sizing: border-box;
+   border: 1px solid darkgrey;
+   outline: none;
+   float: center;
+   font-family: Arial,sans-serif;
+  
+  
+  }
+  
+  input[type=text]:focus {
+    background-color: lightblue;
+  }
+  input[type=password]:focus{
+    background-color: lightblue;
+  }
+
+  /* This section codes for the lauchpad page*/
+
+  #topheader{
+    position: absolute;
+    top: 5%;
+    width: 95%;
+    left: 2.5%;
+    top: 2.5%;
+    background-color: lightgrey;
+    text-align: left ;
+    border: 2px white;
+    border-radius: 10px;
+  }
+
+  #th-welcome{
+    width:50%;
+    float:left;
+  }
+  #th-points{
+    width:25%;
+    float:left;
+  }
+  #th-logout{
+    width:10%;
+    float:right;
+  }
+  #th-logout-form{
+    width:24%;
+    float:right;
+  }

@@ -1,79 +1,19 @@
 <html id="main">
+
 <head>
-<link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style.css">
 </head>
+
 <body id="login-loginform">
-<style>
-#login-loginform {
-  position: absolute;
-  top: 70%;
-  width: 30%;
-  left: 35%;
-  top: 20%;
-  background-color: lightgrey;
-  text-align: center ;
-  border: 2px white;
-  border-radius: 10px;
-}
-form {
-padding: 20px
 
-}
+  <form action="#" method="GET" autocomplete="off" accept-charset="utf-8">
 
-</style>
-<style> 
-input[type=text] {
-  width: 50%;
-  padding: 5px ;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: 1px solid darkgrey;
-  outline: none;
-  float: center;
-  font-family:Arial, sans-serif;
-}
-input[type=password]{
-  width: 50%;
-  padding: 5px ;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: 1px solid darkgrey;
-  outline: none;
-  float: center;
-  font-family:Arial,sans-serif;  
-}
-#h2-login {
-text-align: center ;
-font-family:Arial, sans-serif;
-}
-
-#submit{
- width:20%;
- padding:5px ;
- margin: 8px 0;
- box-sizing: border-box;
- border: 1px solid darkgrey;
- outline: none;
- float: center;
- font-family: Arial,sans-serif;
-
-
-}
-
-input[type=text]:focus {
-  background-color: lightblue;
-}
-input[type=password]:focus{
-  background-color: lightblue;
-}
-</style>
-<form action="#" method="GET" autocomplete="off" accept-charset="utf-8">
-
-<h2 id="h2-login">CipherSchool Login</h2>
-<h3>{{error}}</h3>
-<input type="text" name="uname" placeholder="Username" id="uname"><br>
-<input type="password" name="passwd" placeholder="Password" id="passwd"><br>
-<input type="submit"id="submit" label="Login">
-</form>
+    <h2 id="h2-login">CipherSchool Login</h2>
+    <h3>{{error}}</h3>
+    <input type="text" name="uname" placeholder="Username" id="uname"><br>
+    <input type="password" name="passwd" placeholder="Password" id="passwd"><br>
+    <input type="submit" id="submit" label="Login" value="Login">
+  </form>
 </body>
+
 </html>
