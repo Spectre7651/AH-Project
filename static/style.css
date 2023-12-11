@@ -89,10 +89,12 @@ input[type=text] {
   #th-welcome{
     width:50%;
     float:left;
+    margin-left:1%;
   }
   #th-points{
     width:25%;
     float:left;
+    text-align: right;
   }
   #th-logout{
     width:10%;
@@ -102,3 +104,45 @@ input[type=text] {
     width:24%;
     float:right;
   }
+
+  #mainbody{
+    position:absolute;
+    top: 15%;
+    height:80%;
+    width: 95%;
+    left: 2.5%;
+
+  }
+
+  #mb-ver-1{
+    width:30%;
+    float:left;
+    background-color: lightgrey;
+    text-align: left ;
+    border: 2px white;
+    border-radius: 10px;
+    margin:1%;
+  }
+  #mb-ver-2{
+    width:30%;
+    float:left;
+    background-color: lightgrey;
+    text-align: left ;
+    border: 2px white;
+    border-radius: 10px;
+    margin:1%;
+  }
+  #mb-ver-3{
+    width:30%;
+    float:left;
+    background-color: lightgrey;
+    text-align: left ;
+    border: 2px white;
+    border-radius: 10px;
+    margin:1%;
+  }
+  #mb-title{
+    
+  }
+
+  

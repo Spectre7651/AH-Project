@@ -5,11 +5,11 @@
 import random
 import csv
 
-#Global Vars
+#Setup alphabet as a global variable so that you dont need to pass into each function
 global alphabet
 alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-#AutoRun (gen messages)
+#AutoRun - this selects the message which is encrypted for the user. It also selects a key for the other functions although this is sometimes overriden
 def autorun():
     posmessages = []
     with open("messages.txt","r") as posmessages_file:
@@ -28,15 +28,23 @@ def caesarcipher():
     message,key = autorun()
     key = 3 #This overrides the autorun function to make the key always be 3
     encmessage = ""
+    #Loop over the plaintext message.
     for character in message:
+        #Find the position of the character in the alphabet
         pos = alphabet.find(character)
+        #Add the key to the position
         newpos = (pos + key) % 26
+        #Get the new character
         newchar = alphabet[newpos]
+        #Add the character to the encrypted message
         encmessage += newchar
+    #Give the encrypted message back to [app.py]
     return encmessage
 #------------------------------------
 #Cipher2 - Moving Key Caesar Cipher
 #------------------------------------
+# This uses the same idea as cipher1 but adds 1 to the key for every message encoded
+# eg. AAAA --> BCDE
 def movingkeycipher():
     message,key = autorun()
     key = 1 #Startkey
@@ -47,13 +55,14 @@ def movingkeycipher():
         newchar = alphabet[newpos]
         encmessage += newchar
         key += 1 #Adds one to the key as every letter is encrypted
-        print(key) #Debug
+        #print(key) #Debug
     return encmessage
 
 #----------------------------
 #Cipher3 - SuperEncipherment
 #----------------------------
-        
+# This cipher uses the skills from the previous ciphers but adds a crib (supplied to the user) to swap the letters after 
+# decoding to find the message.
 def supercipherment():
     message,key = autorun()
     #Sets up a dictionary for the crib
