@@ -43,7 +43,6 @@ def login():
             #If the function comes bath as authorised redirect the user to [launchpad.html]
             if res == "AUTHORISED":
                 #return render_template("launchpad.html",name=accountname, points=accntpoints)
-                
                 return redirect("/launchpad")
             #If the password is incorrect tell the user and ask them to re-enter their details
             elif res == "INC-PASSWD":
