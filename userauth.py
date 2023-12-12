@@ -25,19 +25,25 @@ def checkuserdetails(uname,passwd):
             accountname.append(row[3])
             accntpoints.append(row[4])
             #print(authunames,authpasswds,accountname)
-    
+    incpasswd = False
     #Check if the user details supplied is correct
     for i in range(len(authunames)):
         #If the username and password matches an account:
         if uname == authunames[i] and passwd == authpasswds[i]:
             return "AUTHORISED",accountname[i],accntpoints[i] #Send the ok and accountname to the app.py program
             break #Dont bother to loop anymore
-        #If the username belongs to an account but the password is incorrect:
+          #If the username belongs to an account but the password is incorrect:
         elif uname == authunames[i] and passwd != authpasswds[i]:
-            return "INC-PASSWD"," "," " #Tell the app.py script to ask the user to try again
+            incpasswd = True
         #If the username doesn't belong to an account:
         else:
-            return "UNF"," "," " #Return user not found and get the app to tell the user.
+            pass
+    #If the username belongs to an account but the password is incorrect:
+    if incpasswd == True:
+        return "INC-PASSWD"," "," " #Tell the app.py script to ask the user to try again
+    #If the username doesn't belong to an account:
+    else:
+        return "UNF"," "," " #Return user not found and get the app to tell the user.
 
 #checkuserdetails("admin","admin")
 

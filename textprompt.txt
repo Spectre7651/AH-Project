@@ -1,0 +1,19 @@
+Here is the basic prompts that I have made for the program
+
+
+Welcome:
+
+Welcome to Cipher School, use the below labs to explore the basics of the world of cryptanalysis. 
+The ciphers increase in difficulty as you progress so get your pen and paper ready! Lets go!
+
+Cipher 1 - homescreen
+
+This cipher is one of the most basic and was invented by a famous roman leader!
+
+Cipher2 - homescreen
+
+This builds upon the previous code but with a small addition.
+
+Cipher3 - homescreen
+
+This challanges your ability to follow multi-step procedures and use multiple techniques, good luck!
