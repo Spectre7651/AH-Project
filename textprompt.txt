@@ -8,11 +8,12 @@ The ciphers increase in difficulty as you progress so get your pen and paper rea
 
 Cipher 1 - homescreen
 
-This cipher is one of the most basic and was invented by a famous roman leader!
+This cipher is one of the most basic and was invented by a famous roman leader! The quicker you crack
+this code the more points you collect! Good luck.
 
 Cipher2 - homescreen
 
-This builds upon the previous code but with a small addition.
+This builds upon the previous code but with a small addition each letter.
 
 Cipher3 - homescreen
 
