@@ -60,15 +60,15 @@ def launchpad():
 
 @app.route('/ceasercipher',methods=["GET"])
 def ceasercipher():
-    return render_template("ceaser.html")
+    return render_template("ceaser.html",name=accntname,points=accntpoints)
 
 @app.route('/movingkeycipher',methods=["GET"])
 def movingkeycipher():
-    return render_template("movingkey.html")
+    return render_template("movingkey.html",name=accntname,points=accntpoints)
 
 @app.route('/superenciphercipher',methods=["GET"])
 def superenciphercipher():
-    return render_template("superencipher.html")
+    return render_template("superencipher.html",name=accntname,points=accntpoints)
 
 
 #This is a quirk of flask that you have to setup each file as a seperate webpage and is only included to make the html see the css and images etc.
@@ -80,6 +80,9 @@ def background():
 @app.route('/style.css')
 def css():
     return current_app.send_static_file('style.css')
+@app.route('/favicon')
+def faviconico():
+    return current_app.send_static_file('favicon.png')
 
 
 #Start the server on port 8080 of my local machine

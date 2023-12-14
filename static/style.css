@@ -87,7 +87,7 @@ input[type=text] {
     border-radius: 10px;
   }
 
-  #th-welcome{
+  #th-title{
     width:50%;
     float:left;
     margin-left:1%;
@@ -147,4 +147,21 @@ input[type=text] {
     text-align:left;
     size:20px;
     margin:2.5%;
+  }
+
+  /* Ceaser cipher page */
+  #c-th-title{
+    width:25%;
+    float:left;
+    margin-left:3%;
+  } 
+  #c-homebutton c-tutorial{
+    width:10%;
+    float:right;
+    display:block;
+  }
+  #c-th-points{
+    width:15%;
+    float:right;
+    text-align: right;
   }
