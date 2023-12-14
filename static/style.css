@@ -151,17 +151,21 @@ input[type=text] {
 
   /* Ceaser cipher page */
   #c-th-title{
-    width:25%;
+    width:20%;
     float:left;
     margin-left:3%;
   } 
-  #c-homebutton c-tutorial{
-    width:10%;
-    float:right;
-    display:block;
+  #c-th-homebutton{
+    width:25%;
+    float:left;
   }
   #c-th-points{
-    width:15%;
-    float:right;
-    text-align: right;
+    width:25%;
+    float:left;
+    text-align: left;
+  }
+  
+  #c-th-tutorial{
+    width:25%;
+    float:left;
   }
