@@ -10,13 +10,23 @@ background-size: cover;
 body {
 font-family:Arial, sans-serif;
 }
+#topheader{
+  position: absolute;
+  width: 95%;
+  left: 2.5%;
+  top: 2.5%;
+  background-color: lightgrey;
+  text-align: left ;
+  border: 2px white;
+  border-radius: 10px;
+}
 
 /* This section codes for the login screen */
 #login-loginform {
     position: absolute;
     top: 70%;
-    width: 30%;
-    left: 35%;
+    width: 33%;
+    left: 33%;
     top: 20%;
     background-color: lightgrey;
     text-align: center ;
@@ -74,18 +84,6 @@ input[type=text] {
   }
 
   /* This section codes for the lauchpad page*/
-
-  #topheader{
-    position: absolute;
-    top: 5%;
-    width: 95%;
-    left: 2.5%;
-    top: 2.5%;
-    background-color: lightgrey;
-    text-align: left ;
-    border: 2px white;
-    border-radius: 10px;
-  }
 
   #th-title{
     width:50%;
@@ -151,7 +149,7 @@ input[type=text] {
 
   /* Ceaser cipher page */
   #c-th-title{
-    width:20%;
+    width:50%;
     float:left;
     margin-left:3%;
   } 
@@ -159,13 +157,39 @@ input[type=text] {
     width:25%;
     float:left;
   }
-  #c-th-points{
-    width:25%;
-    float:left;
-    text-align: left;
-  }
   
   #c-th-tutorial{
-    width:25%;
+    width:20%;
     float:left;
+    
+  }
+
+  #c-instructions{
+    position:absolute;
+    display:block;
+    top: 15%;
+    height:80%;
+    width: 95%;
+    left: 2.5%;
+    right: 2.5%;
+    background-color: lightgrey;
+    text-align: left ;
+    border: 2px white;
+    border-radius: 10px;
+    margin:1%;
+  }
+
+  #c-body{
+    position:absolute;
+    display:none;
+    top: 15%;
+    height:80%;
+    width: 95%;
+    left: 2.5%;
+    right:2.5%;
+    background-color: lightgrey;
+    text-align: left;
+    border: 2px white;
+    border-radius: 10px;
+    margin:1%;
   }
