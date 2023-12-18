@@ -5,28 +5,38 @@
 	<link rel="stylesheet" href="../style.css">
 	<link rel="icon" type="image/x-icon" href="/favicon">
 	<title>Ceaser - CipherSchool</title>
+	<script>
+		function showhidetutorial(){
+			var x = document.getElementById("c-tutorial");
+			if (x.style.display == "none"){
+				x.style.display = "block"
+			} else {
+				x.style.display = "none"
+			}
+		}
+	</script>
 </head>
 <body>
 	<div id="topheader">
 		<div id="c-th-title">
-			<h3>The Ceaser Cipher {{name}}</h3>
+			<h3>The Ceaser Cipher</h3>
 		</div>
 		<div id="c-th-tutorial">
-			<form action="#">
-				<input type="submit"  value="Show Tutorial">
-			</form>
+			<button onclick="showhidetutorial()"><h5>Show/Hide Tutorial</h5></button>
 		</div>
 		<div id="c-th-homebutton">
-			<form action="/launchpad">
-				<input type="submit"  value="Return Home">
-			</form>
+			<button onclick="location.href = '/launchpad'"><h5>Return Home</h5></button>
 		</div>
-	</div>
-	<div id="c-instructions">
-		<h1>Heres what to do...</h1>
+		<div id="c-th-name">
+			<h4>{{name}}</h4>
+		</div>
 	</div>
 	<div id="c-body">
 		<h1>Main content.</h1>
+	</div>
+	<div id="c-tutorial">
+		<h2>Welcome to the Ceaser Cipher Challange!</h2>
+		<h4>The Ceaser Cipher was invented by Julius Ceaser who used it to send mesage to his commanders</h4>
 	</div>
 </body>
 </html>

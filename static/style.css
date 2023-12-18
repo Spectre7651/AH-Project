@@ -149,26 +149,32 @@ input[type=text] {
 
   /* Ceaser cipher page */
   #c-th-title{
-    width:50%;
+    width:65%;
     float:left;
-    margin-left:3%;
+    margin:2px;
   } 
   #c-th-homebutton{
-    width:25%;
+    width:10%;
     float:left;
+    margin:2px;
+  }
+  #c-th-name{
+    width:10%;
+    float:left;
+    margin:2px;
   }
   
   #c-th-tutorial{
-    width:20%;
+    width:10%;
     float:left;
-    
+    margin:2px;
   }
 
-  #c-instructions{
+  #c-tutorial{
     position:absolute;
     display:block;
     top: 15%;
-    height:80%;
+    height:82.5%;
     width: 95%;
     left: 2.5%;
     right: 2.5%;
@@ -176,14 +182,13 @@ input[type=text] {
     text-align: left ;
     border: 2px white;
     border-radius: 10px;
-    margin:1%;
   }
 
   #c-body{
     position:absolute;
-    display:none;
+    display:block;
     top: 15%;
-    height:80%;
+    height:82.5%;
     width: 95%;
     left: 2.5%;
     right:2.5%;
@@ -191,5 +196,4 @@ input[type=text] {
     text-align: left;
     border: 2px white;
     border-radius: 10px;
-    margin:1%;
   }
