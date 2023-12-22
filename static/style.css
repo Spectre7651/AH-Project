@@ -162,6 +162,7 @@ input[type=text] {
     width:10%;
     float:left;
     margin:2px;
+    text-align:center;
   }
   
   #c-th-tutorial{
@@ -181,6 +182,7 @@ input[type=text] {
     background-color: lightgrey;
     text-align: left ;
     border: 2px white;
+    margin-top:2%;
     border-radius: 10px;
   }
 
@@ -194,6 +196,7 @@ input[type=text] {
     right:2.5%;
     background-color: lightgrey;
     text-align: left;
+    margin-top:1%;
     border: 2px white;
     border-radius: 10px;
   }
