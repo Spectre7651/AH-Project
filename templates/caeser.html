@@ -2,9 +2,9 @@
 <html lang="en-GB" id="main">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="/style.css">
 	<link rel="icon" type="image/x-icon" href="/favicon">
-	<title>Ceaser - CipherSchool</title>
+	<title>Caeser - CipherSchool</title>
 	<script>
 		function showhidetutorial(){
 			var x = document.getElementById("c-tutorial");
@@ -19,7 +19,7 @@
 <body>
 	<div id="topheader">
 		<div id="c-th-title">
-			<h3>The Ceaser Cipher</h3>
+			<h3>The Caeser Cipher</h3>
 		</div>
 		<div id="c-th-tutorial">
 			<button onclick="showhidetutorial()"><h5>Show/Hide Tutorial</h5></button>
@@ -35,8 +35,20 @@
 		<h1>Main content.</h1>
 	</div>
 	<div id="c-tutorial">
-		<h2>Welcome to the Ceaser Cipher Challange!</h2>
-		<h4>The Ceaser Cipher was invented by Julius Ceaser who used it to send mesage to his commanders</h4>
+		<div id="tutorial-left">
+		<h2>Welcome to the Caeser Cipher Challange!</h2>
+		<br>
+		<h4>The Caeser Cipher was invented by Julius Caeser who used it to send mesage to his commanders by 
+			shifting the characters in the message 3 letters along in the alphabet.<br><br> Eg. A would become D and B would become E etc.</h4>
+			<br>
+			<h4>To decode the shift the letters are moved back by three letters with D going back to A.</h4>
+			<br><br>
+			<!--Look at getting this nice-->
+			<button onclick="showhidetutorial()"><h3>Lets Go!</h3></button>
+		</div>	
+		<div id="tutorial-right">
+			<img src="/caeserencodeimg" id="c-encimg">
+		</div>
 	</div>
 </body>
 </html>
