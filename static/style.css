@@ -7,9 +7,11 @@ background-image: url("/background");
 background-repeat: no-repeat;
 background-size: cover;
 }
+/* This sets the body font for the site*/
 body {
 font-family:Arial, sans-serif;
 }
+/* This deals with the top headers across the site*/
 #topheader{
   position: absolute;
   width: 95%;
@@ -146,7 +148,7 @@ input[type=text] {
     size:20px;
     margin:2.5%;
   }
-
+  /*General Tutorial Div Code for the left and right elements*/
   #tutorial-left{
     margin-top:1%;
     width:55%;
@@ -163,6 +165,8 @@ input[type=text] {
     width:65%;
     float:left;
     margin:2px;
+    margin-left:2%;
+    
   } 
   #c-th-homebutton{
     width:10%;
@@ -181,8 +185,8 @@ input[type=text] {
     float:left;
     margin:2px;
   }
-
-  #c-tutorial{
+  /*Challenge Page CSS*/
+  #tutorial{
     position:absolute;
     display:block;
     top: 10%;
@@ -196,17 +200,21 @@ input[type=text] {
     margin-top:1%;
     border-radius: 10px;
   }
+  #tutorial button{
+    margin-left:5%;
+    width:25%;
+  }
 
-  #c-tutorial h2{
+  #tutorial h2{
     margin:1%;
     margin-bottom:0%;
   }
-  #c-tutorial h4{
+  #tutorial h4{
     margin:1%;
     margin-bottom:0%;
   }
 
-  #c-body{
+  #challenge-body{
     position:absolute;
     display:block;
     top: 10%;
@@ -219,4 +227,15 @@ input[type=text] {
     margin-top:1%;
     border: 2px white;
     border-radius: 10px;
+  }
+
+  #challenge-left{
+    margin-top:1%;
+    width:50%;
+    float:left;
+  }
+  #challenge-right{
+    margin-top:1%;
+    width:50%;
+    float:left;
   }

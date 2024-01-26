@@ -3,7 +3,9 @@
 ## This is a daily sync of my laptop files for the project.
 
 ## Notes
-To use a bin search and bubble sort I could make a leaderboard with the person with the most points the quickest at the top.
+To use a bin search and bubble sort I could make a leaderboard with the person with the most points the quickest at the top. -- do this next
+
+The Caeser cipher page is almost working so will just copy and change for the others then comment it.
 
 
 ### Files:

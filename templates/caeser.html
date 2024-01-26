@@ -1,3 +1,7 @@
+<!--Alfie Ford
+This is the html page for the ceaser cipher challenge-->
+
+<!--General Setup-->
 <!DOCTYPE html>
 <html lang="en-GB" id="main">
 <head>
@@ -5,9 +9,10 @@
 	<link rel="stylesheet" href="/style.css">
 	<link rel="icon" type="image/x-icon" href="/favicon">
 	<title>Caeser - CipherSchool</title>
+	<!--This function looks after hiding the tutorial menu when the button is pressed-->
 	<script>
 		function showhidetutorial(){
-			var x = document.getElementById("c-tutorial");
+			var x = document.getElementById("tutorial");
 			if (x.style.display == "none"){
 				x.style.display = "block"
 			} else {
@@ -16,7 +21,9 @@
 		}
 	</script>
 </head>
+<!--Main Body Code-->
 <body>
+	<!--This looks after the top header with the user details and buttons-->
 	<div id="topheader">
 		<div id="c-th-title">
 			<h3>The Caeser Cipher</h3>
@@ -31,10 +38,18 @@
 			<h4>{{name}}</h4>
 		</div>
 	</div>
-	<div id="c-body">
-		<h1>Main content.</h1>
+	<!--This div holds the main challange-->
+	<div id="challenge-body">
+		<div id="challenge-left">
+			<!--This side will have the challange and the help menu wiht a div that will appwear if the help button
+			is pressed-->
+		</div>
+		<div id="challenge-right">
+			<!--This side is where the answer form will go-->
+		</div>
 	</div>
-	<div id="c-tutorial">
+	<!--This is the code for the tutorial that pops up when the page is opened to help the user-->
+	<div id="tutorial">
 		<div id="tutorial-left">
 		<h2>Welcome to the Caeser Cipher Challange!</h2>
 		<br>
@@ -43,11 +58,12 @@
 			<br>
 			<h4>To decode the shift the letters are moved back by three letters with D going back to A.</h4>
 			<br><br>
-			<!--Look at getting this nice-->
-			<button onclick="showhidetutorial()"><h3>Lets Go!</h3></button>
+			<!--This hides the tutorial when the button is pressed-->
+			<button onclick="showhidetutorial()"><h3>  Lets Go!  </h3></button>
 		</div>	
 		<div id="tutorial-right">
 			<img src="/caeserencodeimg" id="c-encimg">
+			<!--Image Credit: Arduino Forum (https://www.google.com/url?sa=i&url=https%3A%2F%2Fforum.arduino.cc%2Ft%2Fcaesar-cipher-with-arduino-pt-1%2F189683&psig=AOvVaw2J9nm_yI2d4ZfePGb0oobx&ust=1706270588054000&source=images&cd=vfe&opi=89978449&ved=0CBMQjhxqFwoTCNj_8Li_-IMDFQAAAAAdAAAAABAD))-->
 		</div>
 	</div>
 </body>
