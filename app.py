@@ -37,7 +37,7 @@ def login():
             uname = request.args.get('uname')
             passwd = request.args.get('passwd')
             #Send the details to the function in [userauth.py] for checking
-            global accntname,accntpoints
+            global accntname,accntpoints,challcode
             res,accntname,accntpoints = uauth.checkuserdetails(uname,passwd)
             print(res,accntname) #Debug
             #If the function comes bath as authorised redirect the user to [launchpad.html]
@@ -60,7 +60,18 @@ def launchpad():
 
 @app.route('/caesercipher',methods=["GET"])
 def caesercipher():
-    return render_template("caeser.html",name=accntname,points=accntpoints)
+    correctanswer = ""
+    challcode = ""
+    challcode,correctanswer = ciphers.caesarcipher()
+    if request.method == "GET":
+        if request.args.get('answerattempt') == None: #If the answer field is empty render the page
+            return render_template("caeser.html",name=accntname,points=accntpoints,code=challcode)
+        else:
+            attemptanswer = request.args.get('answerattempt')
+            if attemptanswer == correctanswer:
+                return render_template("launchpad.html",name=accntname,points=accntpoints)
+            else:
+                return render_template("caeser.html",name=accntname,points=accntpoints,code=challcode)
 
 @app.route('/movingkeycipher',methods=["GET"])
 def movingkeycipher():
@@ -80,6 +91,9 @@ def background():
 @app.route('/style.css')
 def css():
     return current_app.send_static_file('style.css')
+@app.route('/script.js')
+def script():
+    return current_app.send_static_file('script.js')
 #Favicon for the site
 @app.route('/favicon')
 def faviconico():

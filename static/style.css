@@ -185,11 +185,16 @@ input[type=text] {
     float:left;
     margin:2px;
   }
+
+  #c-encimg{
+    width:100%;
+    height:fit-content;
+  }
   /*Challenge Page CSS*/
   #tutorial{
     position:absolute;
     display:block;
-    top: 10%;
+    top: 15%;
     height:80%;
     width: 95%;
     left: 2.5%;
@@ -217,8 +222,8 @@ input[type=text] {
   #challenge-body{
     position:absolute;
     display:block;
-    top: 10%;
-    height:85%;
+    top: 15%;
+    height:80%;
     width: 95%;
     left: 2.5%;
     right:2.5%;

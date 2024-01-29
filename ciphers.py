@@ -39,7 +39,7 @@ def caesarcipher():
         #Add the character to the encrypted message
         encmessage += newchar
     #Give the encrypted message back to [app.py]
-    return encmessage
+    return encmessage,message
 #------------------------------------
 #Cipher2 - Moving Key Caesar Cipher
 #------------------------------------
