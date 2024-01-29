@@ -65,13 +65,15 @@ def caesercipher():
     challcode,correctanswer = ciphers.caesarcipher()
     if request.method == "GET":
         if request.args.get('answerattempt') == None: #If the answer field is empty render the page
-            return render_template("caeser.html",name=accntname,points=accntpoints,code=challcode)
+            return render_template("caeser.html",name=accntname,points=accntpoints,code=challcode, error="")
         else:
             attemptanswer = request.args.get('answerattempt')
-            if attemptanswer == correctanswer:
-                return render_template("launchpad.html",name=accntname,points=accntpoints)
+            if str(attemptanswer).upper() == str(correctanswer):
+                print(f"Correct Answer for Ceaser Cipher {attemptanswer}")
+                return render_template("launchpad.html",name=accntname,points=accntpoints,error="")
             else:
-                return render_template("caeser.html",name=accntname,points=accntpoints,code=challcode)
+                errormess = "Incorrect try again" #Look at error messages not loading tutorial div with ref to this??
+                return render_template("caeser.html",name=accntname,points=accntpoints,code=challcode,error=errormess)
 
 @app.route('/movingkeycipher',methods=["GET"])
 def movingkeycipher():

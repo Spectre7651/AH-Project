@@ -6,3 +6,9 @@ function showhidetutorial(){
         x.style.display = "none"
     }
 }
+function autohidetutorial(){
+    if (window.location.href.indexOf('caesercipher?') == 1) {
+        var x = document.getElementById("tutorial");
+        x.style.display = "none"
+    }
+}
