@@ -7,7 +7,8 @@ function showhidetutorial(){
     }
 }
 function autohidetutorial(){
-    if (window.location.href.indexOf('caesercipher?') == 1) {
+    if ("{{errormess}}" == "True") {
+        alert("Yep I ran")
         var x = document.getElementById("tutorial");
         x.style.display = "none"
     }
