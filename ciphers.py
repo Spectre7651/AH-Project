@@ -56,7 +56,7 @@ def movingkeycipher():
         encmessage += newchar
         key += 1 #Adds one to the key as every letter is encrypted
         #print(key) #Debug
-    return encmessage
+    return encmessage, message
 
 #----------------------------
 #Cipher3 - SuperEncipherment

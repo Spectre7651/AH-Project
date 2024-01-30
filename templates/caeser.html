@@ -10,12 +10,12 @@ This is the html page for the ceaser cipher challenge-->
 	<script src="/script.js"></script> 
 	<script>
 		function autohidetutorial(){
-    if ("{{errormess}}" == "True") {
-        alert("Yep I ran")
-        var x = document.getElementById("tutorial");
-        x.style.display = "none"
-    }
-}
+    		if ("{{error}}" == "True") {
+        		var x = document.getElementById("tutorial");
+        		x.style.display = "none"
+				var errormess = "Incorrect Try Again"
+        		}
+		}
 	</script>
 	<link rel="icon" type="image/x-icon" href="/favicon">
 	<title>Caeser - CipherSchool</title>
@@ -58,7 +58,7 @@ This is the html page for the ceaser cipher challenge-->
 			<h3>{{code}}</h3>
 		</div>
 		<div id="challenge-right">
-			<h4>{{error}}</h4>
+			<h4>{{errormess}}</h4>
  			<form action="#" method="GET" autocomplete="off" accept-charset="utf-8">
 				<input type="text" name="answerattempt" placeholder="Enter the flag" id="answerattempt"><br>
 				<input type="submit" id="attemptanswer-submit" label="Submit Flag" value="Submit Flag">

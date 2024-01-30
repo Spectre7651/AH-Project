@@ -70,14 +70,32 @@ def caesercipher():
             attemptanswer = request.args.get('answerattempt')
             if str(attemptanswer).upper() == str(correctanswer):
                 print(f"Correct Answer for Ceaser Cipher {attemptanswer}")
-                return render_template("launchpad.html",name=accntname,points=accntpoints,error="")
+                uauth.addpoints(accntname,1000)
+                return render_template("win.html",name=accntname,points=accntpoints,challengename="Caeser Cipher",challengepoints="1000")
             else:
-                errormess = "Incorrect try again" #Look at error messages not loading tutorial div with ref to this??
-                return render_template("caeser.html",name=accntname,points=accntpoints,code=challcode,error=errormess)
+                print(f"Incorrect Answer for Ceaser Cipher {attemptanswer}")
+                errormess = "Incorrect Try Again" #Look at error messages not loading tutorial div with ref to this??
+                return render_template("caeser.html",name=accntname,points=accntpoints,code=challcode,error="True",errormess=errormess)
 
 @app.route('/movingkeycipher',methods=["GET"])
 def movingkeycipher():
-    return render_template("movingkey.html",name=accntname,points=accntpoints)
+    correctanswer = ""
+    challcode = ""
+    challcode,correctanswer = ciphers.movingkeycipher()
+    if request.method == "GET":
+        if request.args.get('answerattempt') == None: #If the answer field is empty render the page
+            return render_template("movingkey.html",name=accntname,points=accntpoints,code=challcode, error="")
+        else:
+            attemptanswer = request.args.get('answerattempt')
+            if str(attemptanswer).upper() == str(correctanswer):
+                print(f"Correct Answer for Moving Key Cipher {attemptanswer}")
+                uauth.addpoints(accntname,2500)
+                return render_template("win.html",name=accntname,points=accntpoints,challengename="Moving Key Cipher",challengepoints="2500")
+            else:
+                print(f"Incorrect Answer for Moving Key Cipher {attemptanswer}")
+                errormess = "Incorrect Try Again" #Look at error messages not loading tutorial div with ref to this??
+                return render_template("movingkey.html",name=accntname,points=accntpoints,code=challcode,error="True",errormess=errormess)
+
 
 @app.route('/superenciphercipher',methods=["GET"])
 def superenciphercipher():

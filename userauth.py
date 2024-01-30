@@ -82,3 +82,27 @@ def leaderboard():
         return array #Return the sorted useracct array with the most user with the most points at the start of the array.
     useracct_sorted = bubble_sort(useracct)
     print(useracct_sorted)
+
+def addpoints(targetaccountname,points):
+     #Setup
+    authunames = []
+    authpasswds = []
+    accountname = []
+    accntpoints = []
+    #Open and Read the user details file
+    with open("userdetails.csv","r") as userdetails_file:
+        data = csv.reader(userdetails_file)
+        for row in data:
+            authunames.append(row[1])
+            authpasswds.append(row[2])
+            accountname.append(row[3])
+            accntpoints.append(row[4])
+            #print(authunames,authpasswds,accountname)
+    #Search for the username in the accoutns
+    for i in range(len(authunames)):
+        if authunames[i] == targetaccountname:
+            accntpoints[i] += points
+            for row in authunames:
+                csv.writerow() #Write the new user data tpo the csv file (have fun!)
+        else:
+            pass

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en-GB" id="main">
+<head>
+	<link rel="stylesheet" href="/style.css">
+	<meta charset="UTF-8">
+	<link rel="icon" type="image/x-icon" href="/favicon">
+	<title>CipherSchool Launchpad</title>
+</head>
+<body>
+	<div id="topheader">
+		<h3 id="th-title">Welcome {{name}}</h3>
+		<h3 id="th-points">You have {{points}} points! </h3>
+		<form action="/">
+			<input type="submit" id="th-logout" value="Logout">
+		</form>
+	</div>
+    <div id="challenge-body">
+        <h1>Well Done {{name}} you have passed {{challengename}} and gained {{challengepoints}} points</h1>
+        <button onclick="window.location.href='/launchpad'">Click me</button>
+
+    </div>
+</body>
