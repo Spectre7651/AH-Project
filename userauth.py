@@ -20,17 +20,17 @@ def checkuserdetails(uname,passwd):
     with open("userdetails.csv","r") as userdetails_file:
         data = csv.reader(userdetails_file)
         for row in data:
-            authunames.append(row[1])
-            authpasswds.append(row[2])
-            accountname.append(row[3])
-            accntpoints.append(row[4])
+            authunames.append(row[0])
+            authpasswds.append(row[1])
+            accountname.append(row[2])
+            accntpoints.append(row[3])
             #print(authunames,authpasswds,accountname)
     incpasswd = False
     #Check if the user details supplied is correct
     for i in range(len(authunames)):
         #If the username and password matches an account:
         if uname == authunames[i] and passwd == authpasswds[i]:
-            return "AUTHORISED",accountname[i],accntpoints[i] #Send the ok and accountname to the app.py program
+            return "AUTHORISED",accountname[i],accntpoints[i],authunames[i] #Send the ok and accountname to the app.py program
             break #Dont bother to loop anymore
           #If the username belongs to an account but the password is incorrect:
         elif uname == authunames[i] and passwd != authpasswds[i]:
@@ -47,6 +47,27 @@ def checkuserdetails(uname,passwd):
 
 #checkuserdetails("admin","admin")
 
+#This grabs the current points after a challange is completed
+def getpoints(accountuname):
+    #Setup
+    authunames = []
+    authpasswds = []
+    accountname = []
+    accntpoints = []
+    #Open and Read the user details file
+    with open("userdetails.csv","r") as userdetails_file:
+        data = csv.reader(userdetails_file)
+        for row in data:
+            authunames.append(row[0])
+            authpasswds.append(row[1])
+            accountname.append(row[2])
+            accntpoints.append(row[3])
+    #Find the username needed and pass back the points to the main program.
+    for i in range(len(authunames)):
+        if accountuname == authunames[i]:
+            return accntpoints[i]
+        else:
+            pass
 #This calculate the leaderboard and shows where the current user is in the table (called from launchpad.html)
 
 def leaderboard():
@@ -83,8 +104,9 @@ def leaderboard():
     useracct_sorted = bubble_sort(useracct)
     print(useracct_sorted)
 
+#This saves the new point score of the user to the userdetails.csv file
 def addpoints(targetaccountname,points):
-     #Setup
+    #Setup
     authunames = []
     authpasswds = []
     accountname = []
@@ -93,16 +115,19 @@ def addpoints(targetaccountname,points):
     with open("userdetails.csv","r") as userdetails_file:
         data = csv.reader(userdetails_file)
         for row in data:
-            authunames.append(row[1])
-            authpasswds.append(row[2])
-            accountname.append(row[3])
-            accntpoints.append(row[4])
+            authunames.append(row[0])
+            authpasswds.append(row[1])
+            accountname.append(row[2])
+            accntpoints.append(row[3])
             #print(authunames,authpasswds,accountname)
-    #Search for the username in the accoutns
+    #Search for the username in the accounts
     for i in range(len(authunames)):
         if authunames[i] == targetaccountname:
-            accntpoints[i] += points
-            for row in authunames:
-                csv.writerow() #Write the new user data tpo the csv file (have fun!)
+            #Ammend the accounts point values
+            accntpoints[i] = str(int(accntpoints[i])+ points)
+            #Re-write the data to the csv file
+            with open("userdetails.csv","w") as userdetails_file:
+                for i in range(len(authunames)):
+                    userdetails_file.write(f"{authunames[i]},{authpasswds[i]},{accountname[i]},{accntpoints[i]}\n")
         else:
             pass

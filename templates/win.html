@@ -5,8 +5,11 @@
 	<meta charset="UTF-8">
 	<link rel="icon" type="image/x-icon" href="/favicon">
 	<title>CipherSchool Launchpad</title>
+	<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js">
+	</script>
 </head>
-<body>
+<body onload="confetti()">
+
 	<div id="topheader">
 		<h3 id="th-title">Welcome {{name}}</h3>
 		<h3 id="th-points">You have {{points}} points! </h3>

@@ -1,7 +1,7 @@
 # Alfie Ford - 120088076
 #
 # This is the main program for the project which handles the serving of the web-app
-# It calls the other function which are stored in seperate files for ease of development and maintainance.
+# It calls the other functions which are stored in seperate files for ease of development and maintainance.
 
 #Import flask (webapp framework)
 from flask import Flask, render_template, request, current_app, redirect, url_for
@@ -10,11 +10,14 @@ from flask import Flask, render_template, request, current_app, redirect, url_fo
 import ciphers
 import userauth as uauth
 
-#Global
+#Global variables so they can be accessed in every function without passing them in.
+global accntname,accntpoints,challcode,auname
 accntname = ""
 accntpoints = ""
+challcode = ""
+auname = ""
 
-#Create a flask instance
+#Create a flask instance called app
 app = Flask(__name__)
 
 
@@ -37,12 +40,11 @@ def login():
             uname = request.args.get('uname')
             passwd = request.args.get('passwd')
             #Send the details to the function in [userauth.py] for checking
-            global accntname,accntpoints,challcode
-            res,accntname,accntpoints = uauth.checkuserdetails(uname,passwd)
+            global accntname,accntpoints,challcode,auname
+            res,accntname,accntpoints,auname = uauth.checkuserdetails(uname,passwd)
             print(res,accntname) #Debug
-            #If the function comes bath as authorised redirect the user to [launchpad.html]
+            #If the function comes back as authorised redirect the user to [launchpad.html]
             if res == "AUTHORISED":
-                #return render_template("launchpad.html",name=accountname, points=accntpoints)
                 return redirect("/launchpad")
             #If the password is incorrect tell the user and ask them to re-enter their details
             elif res == "INC-PASSWD":
@@ -53,67 +55,84 @@ def login():
                 errormess = "Incorrect Details - Try Again"
                 return render_template("index.html",error=errormess)
     return render_template("index.html")
+
+#This is the page that will be loaded after a successful login
 @app.route('/launchpad', methods=["GET"])
 def launchpad():
     if request.method == "GET":
-        return render_template("launchpad.html",name=accntname,points=accntpoints)
+        return render_template("launchpad.html",name=accntname,points=uauth.getpoints(auname))
 
+#This is the code for the ceaser cipher challenge page 
 @app.route('/caesercipher',methods=["GET"])
 def caesercipher():
+    #This sets up and grabs the code to be broken and the correct answer from [ciphers.py]
     correctanswer = ""
     challcode = ""
     challcode,correctanswer = ciphers.caesarcipher()
     if request.method == "GET":
-        if request.args.get('answerattempt') == None: #If the answer field is empty render the page
-            return render_template("caeser.html",name=accntname,points=accntpoints,code=challcode, error="")
+        #This checks is the answer field is empty and if so renders the whole page with the tutorial first
+        if request.args.get('answerattempt') == None:
+            return render_template("caeser.html",name=accntname,points=uauth.getpoints(auname),code=challcode, error="")
+        #Otherwise the answer field has been filled in so we need to check if the answer is correct
         else:
             attemptanswer = request.args.get('answerattempt')
+            #If the answer is correct then redirect to the [win.html] page and fill in the info needed
             if str(attemptanswer).upper() == str(correctanswer):
                 print(f"Correct Answer for Ceaser Cipher {attemptanswer}")
-                uauth.addpoints(accntname,1000)
-                return render_template("win.html",name=accntname,points=accntpoints,challengename="Caeser Cipher",challengepoints="1000")
+                #Add 1000 points to the users account
+                uauth.addpoints(auname,1000)
+                return render_template("win.html",name=accntname,points=uauth.getpoints(auname),challengename="Caeser Cipher",challengepoints="1000")
+            #Otherwise the answer is incorrect so the page is reloaded and auto hides the tutorial for the user
             else:
+                #Debug
                 print(f"Incorrect Answer for Ceaser Cipher {attemptanswer}")
-                errormess = "Incorrect Try Again" #Look at error messages not loading tutorial div with ref to this??
-                return render_template("caeser.html",name=accntname,points=accntpoints,code=challcode,error="True",errormess=errormess)
+
+                errormess = "Incorrect Try Again"
+                return render_template("caeser.html",name=accntname,points=uauth.getpoints(auname),code=challcode,error="True",errormess=errormess)
 
 @app.route('/movingkeycipher',methods=["GET"])
 def movingkeycipher():
+    #This is the same structure as the ceaser cipher but with the diffent challange code and page
     correctanswer = ""
     challcode = ""
     challcode,correctanswer = ciphers.movingkeycipher()
     if request.method == "GET":
-        if request.args.get('answerattempt') == None: #If the answer field is empty render the page
-            return render_template("movingkey.html",name=accntname,points=accntpoints,code=challcode, error="")
+        if request.args.get('answerattempt') == None:
+            return render_template("movingkey.html",name=accntname,points=uauth.getpoints(auname),code=challcode, error="")
         else:
             attemptanswer = request.args.get('answerattempt')
             if str(attemptanswer).upper() == str(correctanswer):
                 print(f"Correct Answer for Moving Key Cipher {attemptanswer}")
-                uauth.addpoints(accntname,2500)
-                return render_template("win.html",name=accntname,points=accntpoints,challengename="Moving Key Cipher",challengepoints="2500")
+                uauth.addpoints(auname,2500)
+                return render_template("win.html",name=accntname,points=uauth.getpoints(auname),challengename="Moving Key Cipher",challengepoints="2500")
             else:
                 print(f"Incorrect Answer for Moving Key Cipher {attemptanswer}")
-                errormess = "Incorrect Try Again" #Look at error messages not loading tutorial div with ref to this??
-                return render_template("movingkey.html",name=accntname,points=accntpoints,code=challcode,error="True",errormess=errormess)
+                errormess = "Incorrect Try Again"
+                return render_template("movingkey.html",name=accntname,points=uauth.getpoints(auname),code=challcode,error="True",errormess=errormess)
 
 
 @app.route('/superenciphercipher',methods=["GET"])
 def superenciphercipher():
-    return render_template("superencipher.html",name=accntname,points=accntpoints)
+    return render_template("superencipher.html",name=accntname,points=uauth.getpoints(auname))
 
 
 #This is a quirk of flask that you have to setup each file as a seperate webpage and is only included to make the html see the css and images etc.
+
 #Setup the background image
 @app.route('/background')
 def background():
     return current_app.send_static_file('background.png')
+
 #Setup the style.css file for the html pages.
 @app.route('/style.css')
 def css():
     return current_app.send_static_file('style.css')
+
+#Setup the script.js file for javascript access
 @app.route('/script.js')
 def script():
     return current_app.send_static_file('script.js')
+
 #Favicon for the site
 @app.route('/favicon')
 def faviconico():
@@ -123,6 +142,6 @@ def faviconico():
 def caeserencodeimg():
     return current_app.send_static_file('caeserencode.png')
 
-#Start the server on port 8080 of my local machine
+#Start the server on port 8080 of my local machine when app.py is ran
 if(__name__ == "__main__"):
 	app.run(debug=True, port="8080")
