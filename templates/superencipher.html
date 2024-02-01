@@ -1,11 +1,77 @@
+<!--Alfie Ford -->
+<!--This is the html page for the moving key cipher challenge which uses the same structure as the ceaser cipher page
+but has just been modified for the moving key cipher-->
+
+<!--General Setup-->
 <!DOCTYPE html>
 <html lang="en-GB" id="main">
 <head>
 	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/style.css">
+	<script src="/script.js"></script> 
+	<script>
+		function autohidetutorial(){
+    		if ("{{error}}" == "True") {
+        		var x = document.getElementById("tutorial");
+        		x.style.display = "none"
+				var errormess = "Incorrect Try Again"
+        		}
+		}
+	</script>
 	<link rel="icon" type="image/x-icon" href="/favicon">
-	<link rel="stylesheet" href="../style.css">
 	<title>SuperEncipher - CipherSchool</title>
 </head>
-<body>
+<!--Main Body Code-->
+<body onload="autohidetutorial()">
+	<!--This looks after the top header with the user details and buttons-->
+	<div id="topheader">
+		<div id="c-th-title">
+			<h3>Super Encipherment Cipher</h3>
+		</div>
+		<div id="c-th-tutorial">
+			<button onclick="showhidetutorial()"><h5>Show/Hide Tutorial</h5></button>
+		</div>
+		<div id="c-th-homebutton">
+			<button onclick="location.href = '/launchpad'"><h5>Return Home</h5></button>
+		</div>
+		<div id="c-th-name">
+			<h4>{{name}}</h4>
+		</div>
+	</div>
+	<!--This div holds the main challenge-->
+	<div id="challenge-body">
+		<div id="challenge-left">
+			<h2>Crack the Code to reveal the flag</h2>
+
+			<h4>Here is the code:</h4>
+			<h3>{{code}}</h3>
+		</div>
+		<div id="challenge-right">
+			<h4>{{errormess}}</h4>
+ 			<form action="#" method="GET" autocomplete="off" accept-charset="utf-8">
+				<input type="text" name="answerattempt" placeholder="Enter the flag" id="answerattempt"><br>
+				<input type="submit" id="attemptanswer-submit" label="Submit Flag" value="Submit Flag">
+			</form>
+			<!--This side is where the answer form will go-->
+		</div>
+	</div>
+	<!--This is the code for the tutorial that pops up when the page is opened to help the user-->
+	<div id="tutorial">
+		<div id="tutorial-left">
+		<h2>Welcome to the Super Encipherment Cipher Challenge!</h2>
+		<br>
+		<h4>The Caesar Cipher was invented by Julius Caesar who used it to send mesage to his commanders by 
+			shifting the characters in the message 3 letters along in the alphabet.<br><br> Eg. A would become D and B would become E etc.</h4>
+			<br>
+			<h4>To decode the shift the letters are moved back by three letters with D going back to A.</h4>
+			<br><br>
+			<!--This hides the tutorial when the button is pressed-->
+			<button onclick="showhidetutorial()"><h3>  Lets Go!  </h3></button>
+		</div>	
+		<div id="tutorial-right">
+			<!--<img src="/caesarencodeimg" id="c-encimg">-->
+			<!--Image Credit: Arduino Forum (https://www.google.com/url?sa=i&url=https%3A%2F%2Fforum.arduino.cc%2Ft%2Fcaesar-cipher-with-arduino-pt-1%2F189683&psig=AOvVaw2J9nm_yI2d4ZfePGb0oobx&ust=1706270588054000&source=images&cd=vfe&opi=89978449&ved=0CBMQjhxqFwoTCNj_8Li_-IMDFQAAAAAdAAAAABAD))-->
+		</div>
+	</div>
 </body>
 </html>

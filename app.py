@@ -113,7 +113,31 @@ def movingkeycipher():
 
 @app.route('/superenciphercipher',methods=["GET"])
 def superenciphercipher():
-    return render_template("superencipher.html",name=accntname,points=uauth.getpoints(auname))
+    #This sets up and grabs the code to be broken and the correct answer from [ciphers.py]
+    correctanswer = ""
+    challcode = ""
+    challcode,correctanswer = ciphers.superencipherment()
+    if request.method == "GET":
+        #This checks is the answer field is empty and if so renders the whole page with the tutorial first
+        if request.args.get('answerattempt') == None:
+            return render_template("superencipher.html",name=accntname,points=uauth.getpoints(auname),code=challcode, error="")
+        #Otherwise the answer field has been filled in so we need to check if the answer is correct
+        else:
+            attemptanswer = request.args.get('answerattempt')
+            #If the answer is correct then redirect to the [win.html] page and fill in the info needed
+            if str(attemptanswer).upper() == str(correctanswer):
+                print(f"Correct Answer for SuperEncipherment Cipher {attemptanswer}")
+                #Add 1000 points to the users account
+                uauth.addpoints(auname,1000)
+                return render_template("win.html",name=accntname,points=uauth.getpoints(auname),challengename="Caesar Cipher",challengepoints="1000")
+            #Otherwise the answer is incorrect so the page is reloaded and auto hides the tutorial for the user
+            else:
+                #Debug
+                print(f"Incorrect Answer for SuperEncipherment Cipher {attemptanswer}")
+
+                errormess = "Incorrect Try Again"
+                return render_template("superencipher.html",name=accntname,points=uauth.getpoints(auname),code=challcode,error="True",errormess=errormess)
+
 
 
 #This is a quirk of flask that you have to setup each file as a seperate webpage and is only included to make the html see the css and images etc.

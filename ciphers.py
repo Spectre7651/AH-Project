@@ -63,7 +63,7 @@ def movingkeycipher():
 #----------------------------
 # This cipher uses the skills from the previous ciphers but adds a crib (supplied to the user) to swap the letters after 
 # decoding to find the message.
-def supercipherment():
+def superencipherment():
     message,key = autorun()
     #Sets up a dictionary for the crib
     crib = {}
@@ -96,7 +96,7 @@ def supercipherment():
         newpos = (pos + key) % 26
         newchar = alphabet[newpos]
         encmessage += newchar
-    return encmessage
+    return encmessage, message
 
 #debug
 
