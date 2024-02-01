@@ -62,37 +62,37 @@ def launchpad():
     if request.method == "GET":
         return render_template("launchpad.html",name=accntname,points=uauth.getpoints(auname))
 
-#This is the code for the ceaser cipher challenge page 
-@app.route('/caesercipher',methods=["GET"])
-def caesercipher():
+#This is the code for the Caesar cipher challenge page 
+@app.route('/caesarcipher',methods=["GET"])
+def caesarcipher():
     #This sets up and grabs the code to be broken and the correct answer from [ciphers.py]
     correctanswer = ""
     challcode = ""
-    challcode,correctanswer = ciphers.caesarcipher()
+    challcode,correctanswer = ciphers.Caesarcipher()
     if request.method == "GET":
         #This checks is the answer field is empty and if so renders the whole page with the tutorial first
         if request.args.get('answerattempt') == None:
-            return render_template("caeser.html",name=accntname,points=uauth.getpoints(auname),code=challcode, error="")
+            return render_template("caesar.html",name=accntname,points=uauth.getpoints(auname),code=challcode, error="")
         #Otherwise the answer field has been filled in so we need to check if the answer is correct
         else:
             attemptanswer = request.args.get('answerattempt')
             #If the answer is correct then redirect to the [win.html] page and fill in the info needed
             if str(attemptanswer).upper() == str(correctanswer):
-                print(f"Correct Answer for Ceaser Cipher {attemptanswer}")
+                print(f"Correct Answer for Caesar Cipher {attemptanswer}")
                 #Add 1000 points to the users account
                 uauth.addpoints(auname,1000)
-                return render_template("win.html",name=accntname,points=uauth.getpoints(auname),challengename="Caeser Cipher",challengepoints="1000")
+                return render_template("win.html",name=accntname,points=uauth.getpoints(auname),challengename="Caesar Cipher",challengepoints="1000")
             #Otherwise the answer is incorrect so the page is reloaded and auto hides the tutorial for the user
             else:
                 #Debug
-                print(f"Incorrect Answer for Ceaser Cipher {attemptanswer}")
+                print(f"Incorrect Answer for Caesar Cipher {attemptanswer}")
 
                 errormess = "Incorrect Try Again"
-                return render_template("caeser.html",name=accntname,points=uauth.getpoints(auname),code=challcode,error="True",errormess=errormess)
+                return render_template("Caesar.html",name=accntname,points=uauth.getpoints(auname),code=challcode,error="True",errormess=errormess)
 
 @app.route('/movingkeycipher',methods=["GET"])
 def movingkeycipher():
-    #This is the same structure as the ceaser cipher but with the diffent challange code and page
+    #This is the same structure as the Caesar cipher but with the diffent challenge code and page
     correctanswer = ""
     challcode = ""
     challcode,correctanswer = ciphers.movingkeycipher()
@@ -137,10 +137,10 @@ def script():
 @app.route('/favicon')
 def faviconico():
     return current_app.send_static_file('favicon.png')
-#Caeser Encode Img for tutorial
-@app.route('/caeserencodeimg')
-def caeserencodeimg():
-    return current_app.send_static_file('caeserencode.png')
+#Caesar Encode Img for tutorial
+@app.route('/caesarencodeimg')
+def caesarencodeimg():
+    return current_app.send_static_file('caesarencode.png')
 
 #Start the server on port 8080 of my local machine when app.py is ran
 if(__name__ == "__main__"):

@@ -4,11 +4,18 @@
 	<link rel="stylesheet" href="/style.css">
 	<meta charset="UTF-8">
 	<link rel="icon" type="image/x-icon" href="/favicon">
-	<title>CipherSchool Launchpad</title>
+	<title>Challenge Completed</title>
+	<!--This is a external javascript file for the confetti effect when the page is loaded-->
+	<!--With thanks to all at (https://www.npmjs.com/package/canvas-confetti) for this cool effect! -->
 	<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js">
 	</script>
 </head>
-<body onload="confetti()">
+<!--The Body Code for the win page
+	Autoruns the confetti effect imported from above-->
+<body onload="confetti({
+	particleCount:2000,
+	spread:180,
+	ticks:500})">
 
 	<div id="topheader">
 		<h3 id="th-title">Welcome {{name}}</h3>

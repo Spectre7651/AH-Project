@@ -47,7 +47,7 @@ def checkuserdetails(uname,passwd):
 
 #checkuserdetails("admin","admin")
 
-#This grabs the current points after a challange is completed
+#This grabs the current points after a challenge is completed
 def getpoints(accountuname):
     #Setup
     authunames = []

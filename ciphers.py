@@ -24,7 +24,7 @@ def autorun():
 #------------------------
 #Cipher1 - Caesar Cipher 
 #------------------------
-def caesarcipher():
+def Caesarcipher():
     message,key = autorun()
     key = 3 #This overrides the autorun function to make the key always be 3
     encmessage = ""
@@ -100,6 +100,6 @@ def supercipherment():
 
 #debug
 
-#print(caesarcipher())
+#print(Caesarcipher())
 #print(movingkeycipher())
 #print(supercipherment())
