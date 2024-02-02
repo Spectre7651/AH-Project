@@ -166,6 +166,11 @@ def faviconico():
 def caesarencodeimg():
     return current_app.send_static_file('caesarencode.png')
 
+#The note I made to give the crib to the user
+@app.route('/cribnote')
+def cribnote():
+    return current_app.send_static_file('cribnote.png')
+
 #Start the server on port 8080 of my local machine when app.py is ran
 if(__name__ == "__main__"):
 	app.run(debug=True, port="8080")

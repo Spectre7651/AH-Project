@@ -45,14 +45,17 @@ but has just been modified for the moving key cipher-->
 
 			<h4>Here is the code:</h4>
 			<h3>{{code}}</h3>
-		</div>
-		<div id="challenge-right">
+			<br>
 			<h4>{{errormess}}</h4>
  			<form action="#" method="GET" autocomplete="off" accept-charset="utf-8">
 				<input type="text" name="answerattempt" placeholder="Enter the flag" id="answerattempt"><br>
 				<input type="submit" id="attemptanswer-submit" label="Submit Flag" value="Submit Flag">
 			</form>
-			<!--This side is where the answer form will go-->
+			
+		</div>
+		<div id="challenge-right">
+			<h4>This is the crib our field agents have discoverd:</h4>
+			<img src="/cribnote">
 		</div>
 	</div>
 	<!--This is the code for the tutorial that pops up when the page is opened to help the user-->
@@ -60,10 +63,9 @@ but has just been modified for the moving key cipher-->
 		<div id="tutorial-left">
 		<h2>Welcome to the Super Encipherment Cipher Challenge!</h2>
 		<br>
-		<h4>The Caesar Cipher was invented by Julius Caesar who used it to send mesage to his commanders by 
-			shifting the characters in the message 3 letters along in the alphabet.<br><br> Eg. A would become D and B would become E etc.</h4>
+		<h4>This is the hardest cipher yet, building on the previous challange each letter is swapped for another one from a crib which our field agents have discovered.<br><br> After that we think the letter is encoded using the caesar cipher with a random key, we need you work backwards to crack the code and reveal the flag!</h4>
 			<br>
-			<h4>To decode the shift the letters are moved back by three letters with D going back to A.</h4>
+			<h4>Good Luck!</h4>
 			<br><br>
 			<!--This hides the tutorial when the button is pressed-->
 			<button onclick="showhidetutorial()"><h3>  Lets Go!  </h3></button>

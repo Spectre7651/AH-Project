@@ -52,7 +52,6 @@ but has just been modified for the moving key cipher-->
 				<input type="text" name="answerattempt" placeholder="Enter the flag" id="answerattempt"><br>
 				<input type="submit" id="attemptanswer-submit" label="Submit Flag" value="Submit Flag">
 			</form>
-			<!--This side is where the answer form will go-->
 		</div>
 	</div>
 	<!--This is the code for the tutorial that pops up when the page is opened to help the user-->
@@ -60,17 +59,16 @@ but has just been modified for the moving key cipher-->
 		<div id="tutorial-left">
 		<h2>Welcome to the Moving Key Cipher Challenge!</h2>
 		<br>
-		<h4>The Caesar Cipher was invented by Julius Caesar who used it to send mesage to his commanders by 
-			shifting the characters in the message 3 letters along in the alphabet.<br><br> Eg. A would become D and B would become E etc.</h4>
+		<h4>Since you have broken their last cipher the group were watching have upgraded their cipher.<br>
+			One of our sources says that they are just increasing the key for every letter that is encoded<br> 
+			For instance the message "AAAA" would become "BCDE" as the key starts at one and increases by one every letter that is encoded</h4>
 			<br>
-			<h4>To decode the shift the letters are moved back by three letters with D going back to A.</h4>
+			<h4>Good luck!</h4>
 			<br><br>
 			<!--This hides the tutorial when the button is pressed-->
 			<button onclick="showhidetutorial()"><h3>  Lets Go!  </h3></button>
 		</div>	
 		<div id="tutorial-right">
-			<img src="/caesarencodeimg" id="c-encimg">
-			<!--Image Credit: Arduino Forum (https://www.google.com/url?sa=i&url=https%3A%2F%2Fforum.arduino.cc%2Ft%2Fcaesar-cipher-with-arduino-pt-1%2F189683&psig=AOvVaw2J9nm_yI2d4ZfePGb0oobx&ust=1706270588054000&source=images&cd=vfe&opi=89978449&ved=0CBMQjhxqFwoTCNj_8Li_-IMDFQAAAAAdAAAAABAD))-->
 		</div>
 	</div>
 </body>
