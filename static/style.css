@@ -109,7 +109,7 @@ input[type=text] {
   #mainbody{
     position:absolute;
     top: 15%;
-    height:80%;
+    height:75%;
     width: 95%;
     left: 2.5%;
 
@@ -141,6 +141,10 @@ input[type=text] {
     border: 2px white;
     border-radius: 10px;
     margin:1%;
+  }
+  #mb-img{
+    height:auto;
+    width: 75%;
   }
 
   #mb-desc{

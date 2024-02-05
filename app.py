@@ -166,6 +166,14 @@ def faviconico():
 def caesarencodeimg():
     return current_app.send_static_file('caesarencode.png')
 
+#The Image for the launchpad caesar section
+@app.route('/caesarwheelimg')
+def caesarwheelimg():
+    return current_app.send_static_file('caesarwheel.png')
+#The image for the moving key launchpad
+@app.route('/movingkeyimg')
+def movingkeyimg():
+    return current_app.send_static_file('enigma.jpg')
 #The note I made to give the crib to the user
 @app.route('/cribnote')
 def cribnote():
