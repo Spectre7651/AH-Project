@@ -91,13 +91,15 @@ def superencipherment():
     print(halfmessage)
     #Encode it with ceaser shift key 1-26 random.
     encmessage = ""
+    key = 1 #Startkey
     for character in halfmessage:
         pos = alphabet.find(character)
         newpos = (pos + key) % 26
         newchar = alphabet[newpos]
         encmessage += newchar
-    return encmessage, message
-
+        key += 1 #Adds one to the key as every letter is encrypted
+        #print(key) #Debug
+    return encmessage,message
 #debug
 
 #print(Caesarcipher())
