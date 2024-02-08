@@ -8,7 +8,7 @@ from flask import Flask, render_template, request, current_app, redirect, url_fo
 
 #Import the other modules from other files in the project
 import ciphers
-import userauth as uauth
+import usermanagement as uman
 
 #Global variables so they can be accessed in every function without passing them in.
 global accntname,accntpoints,challcode,auname
@@ -41,8 +41,11 @@ def login():
             passwd = request.args.get('passwd')
             #Send the details to the function in [userauth.py] for checking
             global accntname,accntpoints,challcode,auname
-            res,accntname,accntpoints,auname = uauth.checkuserdetails(uname,passwd)
-            print(res,accntname) #Debug
+            res,accntname,accntpoints,auname = uman.checkuserdetails(uname,passwd)
+
+            #Debug
+            print(res,accntname) 
+
             #If the function comes back as authorised redirect the user to [launchpad.html]
             if res == "AUTHORISED":
                 return redirect("/launchpad")
@@ -52,7 +55,7 @@ def login():
                 return render_template("index.html",error=errormess)
             #Otherwise tell the user the details supplied were incorrect and get them to do it again.
             else:
-                errormess = "Incorrect Details - Try Again"
+                errormess = "Account Not Found - Try Again"
                 return render_template("index.html",error=errormess)
     return render_template("index.html")
 
@@ -60,7 +63,7 @@ def login():
 @app.route('/launchpad', methods=["GET"])
 def launchpad():
     if request.method == "GET":
-        return render_template("launchpad.html",name=accntname,points=uauth.getpoints(auname))
+        return render_template("launchpad.html",name=accntname,points=uman.getpoints(auname))
 
 #This is the code for the Caesar cipher challenge page 
 @app.route('/caesarcipher',methods=["GET"])
@@ -72,7 +75,8 @@ def caesarcipher():
     if request.method == "GET":
         #This checks is the answer field is empty and if so renders the whole page with the tutorial first
         if request.args.get('answerattempt') == None:
-            return render_template("caesar.html",name=accntname,points=uauth.getpoints(auname),code=challcode, error="")
+            return render_template("caesar.html",name=accntname,points=uman.getpoints(auname),code=challcode, error="")
+
         #Otherwise the answer field has been filled in so we need to check if the answer is correct
         else:
             attemptanswer = request.args.get('answerattempt')
@@ -80,15 +84,15 @@ def caesarcipher():
             if str(attemptanswer).upper() == str(correctanswer):
                 print(f"Correct Answer for Caesar Cipher {attemptanswer}")
                 #Add 1000 points to the users account
-                uauth.addpoints(auname,1000)
-                return render_template("win.html",name=accntname,points=uauth.getpoints(auname),challengename="Caesar Cipher",challengepoints="1000")
+                uman.addpoints(auname,1000)
+                return render_template("win.html",name=accntname,points=uman.getpoints(auname),challengename="Caesar Cipher",challengepoints="1000")
             #Otherwise the answer is incorrect so the page is reloaded and auto hides the tutorial for the user
             else:
                 #Debug
                 print(f"Incorrect Answer for Caesar Cipher {attemptanswer}")
 
                 errormess = "Incorrect Try Again"
-                return render_template("Caesar.html",name=accntname,points=uauth.getpoints(auname),code=challcode,error="True",errormess=errormess)
+                return render_template("Caesar.html",name=accntname,points=uman.getpoints(auname),code=challcode,error="True",errormess=errormess)
 
 @app.route('/movingkeycipher',methods=["GET"])
 def movingkeycipher():
@@ -98,17 +102,17 @@ def movingkeycipher():
     challcode,correctanswer = ciphers.movingkeycipher()
     if request.method == "GET":
         if request.args.get('answerattempt') == None:
-            return render_template("movingkey.html",name=accntname,points=uauth.getpoints(auname),code=challcode, error="")
+            return render_template("movingkey.html",name=accntname,points=uman.getpoints(auname),code=challcode, error="")
         else:
             attemptanswer = request.args.get('answerattempt')
             if str(attemptanswer).upper() == str(correctanswer):
                 print(f"Correct Answer for Moving Key Cipher {attemptanswer}")
-                uauth.addpoints(auname,2500)
-                return render_template("win.html",name=accntname,points=uauth.getpoints(auname),challengename="Moving Key Cipher",challengepoints="2500")
+                uman.addpoints(auname,2500)
+                return render_template("win.html",name=accntname,points=uman.getpoints(auname),challengename="Moving Key Cipher",challengepoints="2500")
             else:
                 print(f"Incorrect Answer for Moving Key Cipher {attemptanswer}")
                 errormess = "Incorrect Try Again"
-                return render_template("movingkey.html",name=accntname,points=uauth.getpoints(auname),code=challcode,error="True",errormess=errormess)
+                return render_template("movingkey.html",name=accntname,points=uman.getpoints(auname),code=challcode,error="True",errormess=errormess)
 
 
 @app.route('/superenciphercipher',methods=["GET"])
@@ -120,7 +124,7 @@ def superenciphercipher():
     if request.method == "GET":
         #This checks is the answer field is empty and if so renders the whole page with the tutorial first
         if request.args.get('answerattempt') == None:
-            return render_template("superencipher.html",name=accntname,points=uauth.getpoints(auname),code=challcode, error="")
+            return render_template("superencipher.html",name=accntname,points=uman.getpoints(auname),code=challcode, error="")
         #Otherwise the answer field has been filled in so we need to check if the answer is correct
         else:
             attemptanswer = request.args.get('answerattempt')
@@ -128,15 +132,15 @@ def superenciphercipher():
             if str(attemptanswer).upper() == str(correctanswer):
                 print(f"Correct Answer for SuperEncipherment Cipher {attemptanswer}")
                 #Add 1000 points to the users account
-                uauth.addpoints(auname,1000)
-                return render_template("win.html",name=accntname,points=uauth.getpoints(auname),challengename="Caesar Cipher",challengepoints="1000")
+                uman.addpoints(auname,1000)
+                return render_template("win.html",name=accntname,points=uman.getpoints(auname),challengename="Caesar Cipher",challengepoints="1000")
             #Otherwise the answer is incorrect so the page is reloaded and auto hides the tutorial for the user
             else:
                 #Debug
                 print(f"Incorrect Answer for SuperEncipherment Cipher {attemptanswer}")
 
                 errormess = "Incorrect Try Again"
-                return render_template("superencipher.html",name=accntname,points=uauth.getpoints(auname),code=challcode,error="True",errormess=errormess)
+                return render_template("superencipher.html",name=accntname,points=uman.getpoints(auname),code=challcode,error="True",errormess=errormess)
 
 
 
