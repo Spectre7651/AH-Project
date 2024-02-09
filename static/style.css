@@ -35,12 +35,10 @@ font-family:Arial, sans-serif;
     border: 2px white;
     border-radius: 10px;
   }
-  form {
+form {
   padding: 20px
-  
   }
-
-input[type=text] {
+input{
     width: 50%;
     padding: 5px ;
     margin: 8px 0;
@@ -50,22 +48,11 @@ input[type=text] {
     float: center;
     font-family:Arial, sans-serif;
   }
-  input[type=password]{
-    width: 50%;
-    padding: 5px ;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 1px solid darkgrey;
-    outline: none;
-    float: center;
-    font-family:Arial,sans-serif;  
-  }
-  #h2-login {
+#h2-login {
   text-align: center ;
   font-family:Arial, sans-serif;
   }
-  
-  #submit{
+#submit{
    width:20%;
    padding:5px ;
    margin: 8px 0;
@@ -74,17 +61,11 @@ input[type=text] {
    outline: none;
    float: center;
    font-family: Arial,sans-serif;
-  
-  
   }
   
-  input[type=text]:focus {
-    background-color: lightblue;
+  input:focus {
+    background-color: lightcyan;
   }
-  input[type=password]:focus{
-    background-color: lightblue;
-  }
-
   /* This section codes for the lauchpad page*/
 
   #th-title{
@@ -115,25 +96,7 @@ input[type=text] {
 
   }
 
-  #mb-ver-1{
-    width:30%;
-    float:left;
-    background-color: lightgrey;
-    text-align: center ;
-    border: 2px white;
-    border-radius: 10px;
-    margin:1%;
-  }
-  #mb-ver-2{
-    width:30%;
-    float:left;
-    background-color: lightgrey;
-    text-align: center ;
-    border: 2px white;
-    border-radius: 10px;
-    margin:1%;
-  }
-  #mb-ver-3{
+  #mb-column{
     width:30%;
     float:left;
     background-color: lightgrey;
@@ -238,7 +201,7 @@ input[type=text] {
     border-radius: 10px;
   }
 
-  #challenge-left{
+  #challenge-side{
     margin-top:1%;
     width:50%;
     float:left;
@@ -248,3 +211,152 @@ input[type=text] {
     width:50%;
     float:left;
   }
+
+/*Alternative screen size css (just removes floats*/
+@media screen and (max-width:600px) {
+
+    /* This section codes for the lauchpad page*/
+    #topheader{
+      display:block;
+      height:15%;
+    }
+    #th-title{
+      width:100%;
+      float:inline;
+      margin-left:1%;
+    }
+    #th-points{
+      width:100%;
+      float:inline;
+      text-align: center;
+    }
+    #th-logout{
+      width:100%;
+      float:inline;
+    }
+    #th-logout-form{
+      width:100%;
+      float:inline;
+    }
+  
+    #mainbody{
+      position:relative;
+      height:75%;
+      width: 95%;
+      left: 2.5%;
+  
+    }
+  
+    #mb-column{
+      width:100%;
+      float:left;
+      background-color: lightgrey;
+      text-align: center ;
+      border: 2px white;
+      border-radius: 10px;
+      margin:1%;
+    }
+    #mb-img{
+      height:auto;
+      width: 50%;
+    }
+  
+    #mb-desc{
+      text-align:left;
+      size:20px;
+      margin:2.5%;
+    }
+    /*General Tutorial Div Code for the left and right elements*/
+    #tutorial-left{
+      margin-top:1%;
+      width:100%;
+      float:inline;
+    }
+    #tutorial-right{
+      margin-top:5%;
+      width:100%;
+      float:inline;
+      align-items:center;
+    }
+    /* Ceaser cipher page */
+    #c-th-title{
+      width:100%;
+      float:inline;
+      margin:2px;
+      
+    } 
+    #c-th-homebutton{
+      width:100%;
+      margin:2px;
+    }
+    #c-th-name{
+      width:100%;
+      float:inline;
+      margin:2px;
+      text-align:center;
+    }
+    
+    #c-th-tutorial{
+      width:100%;
+      float:inline;
+      margin:2px;
+    }
+  
+    #c-encimg{
+      width:50%;
+      height:fit-content;
+    }
+    /*Challenge Page CSS*/
+    #tutorial{
+      position:absolute;
+      display:block;
+      height:50%;
+      width: 95%;
+      left: 2.5%;
+      right: 2.5%;
+      background-color: lightgrey;
+      text-align: left ;
+      border: 2px white;
+      margin-top:1%;
+      border-radius: 10px;
+    }
+    #tutorial button{
+      margin-left:5%;
+      width:25%;
+    }
+  
+    #tutorial h2{
+      margin:1%;
+      margin-bottom:0%;
+    }
+    #tutorial h4{
+      margin:1%;
+      margin-bottom:0%;
+    }
+  
+    #challenge-body{
+      position:absolute;
+      display:block;
+      top: 15%;
+      height:80%;
+      width: 95%;
+      left: 2.5%;
+      right:2.5%;
+      background-color: lightgrey;
+      text-align: left;
+      margin-top:1%;
+      border: 2px white;
+      border-radius: 10px;
+    }
+  
+    #challenge-side{
+      margin-top:1%;
+      width:50%;
+      float:left;
+    }
+    #challenge-right{
+      margin-top:1%;
+      width:50%;
+      float:left;
+    }
+}
