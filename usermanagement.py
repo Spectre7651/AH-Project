@@ -76,17 +76,17 @@ def getpoints(accountuname):
             pass
 
 #This calculates the leaderboard and shows where the current user is in the table (called from launchpad.html)
-def leaderboard():
+def leaderboard(currentuser):
     #Setup 2D array, so that a whole user record can be moved easily during the sort
     #Data will follow useracct = [[id,name,points],[...]]
 
     #Setup the useracct array which is in a different format to easily move the records about the array while sorting
     useracct = []
     #Open and Read the user details file
-    with open("userdetails.txt","r") as userdetails_file:
+    with open("userdetails.csv","r") as userdetails_file:
         data = csv.reader(userdetails_file)
         for row in data:
-            useracct.append([int(row[0]),row[3],int(row[4])])
+            useracct.append([row[0],int(row[3])])
     #Please note that the [with open] method automatically closes the file :)
     #Debug
     print(useracct)
@@ -98,7 +98,7 @@ def leaderboard():
         swapped = True
         while swapped == True and n >= 0:
             for i in range(n-1): #Loop over the array
-                if int(array[i][2]) < int(array[i+1][2]): #If this accounts point score is smaller than the next one..
+                if int(array[i][1]) < int(array[i+1][1]): #If this accounts point score is smaller than the next one..
                     #Swap records in the array (this swaps the whole account sub-array inn the useracct array)
                     temp = array[i]
                     #print(temp)
@@ -108,26 +108,20 @@ def leaderboard():
             n = n-1
         return array #Return the sorted useracct array with the most user with the most points at the start of the array.
     useracct_sorted = bubble_sort(useracct)
-    print(useracct_sorted)
+    ############################CHANGE TO BINARY SEARCH? ################################
+    for i in range(len(useracct_sorted)):
+        if useracct_sorted[i][0] == currentuser:
+            pointsbehind = useracct_sorted[0][1] - useracct_sorted[i][1]
+            position = f"You Are Number {i+1} On The Leaderboard. Only {pointsbehind} Points Behind The Leader {useracct_sorted[0][0]}"
+    print(useracct_sorted,position)
+    return useracct_sorted,position
+#leaderboard("test")
 
 #This saves the new point score of the user to the userdetails.csv file
 def addpoints(targetaccountname,points):
     #Setup
     authuser_details = importuserdata()
-    authunames = []
-    authpasswds = []
-    accountname = []
-    accntpoints = []
-    #Open and Read the user details file
-    with open("userdetails.csv","r") as userdetails_file:
-        data = csv.reader(userdetails_file)
-        for row in data:
-            authunames.append(row[0])
-            authpasswds.append(row[1])
-            accountname.append(row[2])
-            accntpoints.append(row[3])
-            #print(authunames,authpasswds,accountname)
-    #Search for the username in the accounts
+    #Search for the target username in the accounts
     for i in range(len(authuser_details[0])):
         if authuser_details[0][i] == targetaccountname:
             #Ammend the accounts point values
