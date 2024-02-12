@@ -86,6 +86,30 @@ input{
     width:24%;
     float:right;
   }
+  #leaderboard{
+    position: absolute;
+    top:2.5%;
+    width:95%;
+    left:2.5%;
+    height:10%;
+    background-image: linear-gradient(
+      45deg,
+      magenta,
+      rebeccapurple,
+      dodgerblue
+    );
+    opacity: 1;
+    border:0px;
+  }
+  #leaderboard h2{
+    width:80%;
+    float:left;
+  }
+  #leaderboard form{
+    height:100%;
+    width:15%;
+    float:left;
+  }
 
   #mainbody{
     position:absolute;
@@ -211,14 +235,14 @@ input{
     width:50%;
     float:left;
   }
+  
 
 /*Alternative screen size css (just removes floats*/
 @media screen and (max-width:600px) {
 
     /* This section codes for the lauchpad page*/
     #topheader{
-      display:block;
-      height:15%;
+      margin-bottom: 10px;
     }
     #th-title{
       width:100%;
@@ -240,16 +264,14 @@ input{
     }
   
     #mainbody{
-      position:relative;
-      height:75%;
-      width: 95%;
+      display:block;
+      height:100%;
       left: 2.5%;
   
     }
   
     #mb-column{
       width:100%;
-      float:left;
       background-color: lightgrey;
       text-align: center ;
       border: 2px white;

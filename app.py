@@ -63,7 +63,8 @@ def login():
 @app.route('/launchpad', methods=["GET"])
 def launchpad():
     if request.method == "GET":
-        return render_template("launchpad.html",name=accntname,points=uman.getpoints(auname))
+        position,confetti_flag = uman.leaderboard(auname)
+        return render_template("launchpad.html",name=accntname,points=uman.getpoints(auname),leaderboardmessage=position,confetti=confetti_flag)
 
 #This is the code for the Caesar cipher challenge page 
 @app.route('/caesarcipher',methods=["GET"])

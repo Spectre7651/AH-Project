@@ -90,6 +90,7 @@ def leaderboard(currentuser):
     #Please note that the [with open] method automatically closes the file :)
     #Debug
     print(useracct)
+    print(currentuser)
 
     #Perform a bubble sort to find user with the highest point score
     def bubble_sort(useracct):
@@ -108,13 +109,16 @@ def leaderboard(currentuser):
             n = n-1
         return array #Return the sorted useracct array with the most user with the most points at the start of the array.
     useracct_sorted = bubble_sort(useracct)
-    ############################CHANGE TO BINARY SEARCH? ################################
     for i in range(len(useracct_sorted)):
         if useracct_sorted[i][0] == currentuser:
             pointsbehind = useracct_sorted[0][1] - useracct_sorted[i][1]
-            position = f"You Are Number {i+1} On The Leaderboard. Only {pointsbehind} Points Behind The Leader {useracct_sorted[0][0]}"
-    print(useracct_sorted,position)
-    return useracct_sorted,position
+            if i == 0:
+                position = f"Congratulations You Are Number {i+1} On The Leaderboard!"
+                confetti_flag = True
+            else:
+                position = f"You Are Number {i+1} On The Leaderboard. Only {pointsbehind} Points Behind The Leader {useracct_sorted[0][0]}"
+    print(useracct_sorted,position,confetti_flag)
+    return position,confetti_flag
 #leaderboard("test")
 
 #This saves the new point score of the user to the userdetails.csv file
