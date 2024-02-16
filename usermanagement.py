@@ -109,6 +109,7 @@ def leaderboard(currentuser):
             n = n-1
         return array #Return the sorted useracct array with the most user with the most points at the start of the array.
     useracct_sorted = bubble_sort(useracct)
+    confetti_flag = False
     for i in range(len(useracct_sorted)):
         if useracct_sorted[i][0] == currentuser:
             pointsbehind = useracct_sorted[0][1] - useracct_sorted[i][1]
@@ -117,8 +118,8 @@ def leaderboard(currentuser):
                 confetti_flag = True
             else:
                 position = f"You Are Number {i+1} On The Leaderboard. Only {pointsbehind} Points Behind The Leader {useracct_sorted[0][0]}"
-    print(useracct_sorted,position,confetti_flag)
-    return position,confetti_flag
+    #print(useracct_sorted,position,confetti_flag)
+    return position
 #leaderboard("test")
 
 #This saves the new point score of the user to the userdetails.csv file
@@ -132,7 +133,7 @@ def addpoints(targetaccountname,points):
             authuser_details[3][i] = str(int(authuser_details[3][i])+ points)
             #Re-write the data to the csv file
             with open("userdetails.csv","w") as userdetails_file:
-                for i in range(len(authunames)):
+                for i in range(len(authuser_details[0])):
                     userdetails_file.write(f"{authuser_details[0][i]},{authuser_details[1][i]},{authuser_details[2][i]},{authuser_details[3][i]}\n")
         else:
             pass

@@ -6,16 +6,6 @@
 	<link rel="icon" type="image/x-icon" href="/favicon">
 	<title>CipherSchool Launchpad</title>
 	<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
-	<script>
-		function poss_confetti(){
-    		if ("{{confetti}}" == "True") {
-        		confetti({
-					particleCount:2000,
-					spread:180,
-					ticks:500})
-        		}
-		}
-	</script>
 </head>
 <body>
 	<div id="topheader">
@@ -53,10 +43,7 @@
 			</form>
 		</div>
 	</div>
-	<dialog open id="leaderboard" onload="confetti({
-		particleCount:2000,
-		spread:180,
-		ticks:500})">
+	<dialog open id="leaderboard">
 		<h2>{{leaderboardmessage}}</h2>
 		<form method="dialog">
 			<button>OK</button>
