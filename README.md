@@ -16,6 +16,9 @@
 * userdetails.csv stores the account details
 
 
+## Writeup
+[Writeup of the project in gdocs](https://docs.google.com/document/d/1UsQqSsPSjJEm_fAsduAVPTBzM08rGLCWtKD6Onn9WX8/edit?usp=sharing)
+
 ### Links
 * [Project Plan](https://docs.google.com/document/d/1h5udJEeES8V8zh6XGXwm2H_6FQNdKKWM5wVFrd1cyIo/edit?usp=sharing) holds all the planning and specs for the project.
 * [Flask Reference](https://www.geeksforgeeks.org/flask-tutorial/), this helps me with the sdd-wdd bridge
