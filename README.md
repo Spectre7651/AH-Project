@@ -2,8 +2,6 @@
 
 ## This is a daily sync of my laptop files for the project.
 
-## Please see the Issues tab for updates on what i'm getting on with and when it will be done.
-
 
 ### Files:
 * ciphers.py is a implementation of the three ciphers i'm using for this project
@@ -27,12 +25,4 @@
 * [Confetti Effect](https://www.npmjs.com/package/canvas-confetti), The best css effect!
 
 
-### References (Will move to references.md later)
-
-image named caesarencode used in caesar.html comes from Auduino Forum (https://www.google.com/url?sa=i&url=https%3A%2F%2Fforum.arduino.cc%2Ft%2Fcaesar-cipher-with-arduino-pt-1%2F189683&psig=AOvVaw2J9nm_yI2d4ZfePGb0oobx&ust=1706270588054000&source=images&cd=vfe&opi=89978449&ved=0CBMQjhxqFwoTCNj_8Li_-IMDFQAAAAAdAAAAABAD)
-
-Caesar wheel ref https://www.nku.edu/~christensen/1901%20cscmat%20483%20section%202%20caesar%20ciphers.pdf image taken from pdf
-
-Movingkey home img https://geeksoutofthebox.com/2019/06/28/encoding-and-cracking-codes-in-python/
-
-Enigma imge https://www.bbc.co.uk/history/topics/enigma 
+### For References see references.md
