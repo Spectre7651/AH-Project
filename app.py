@@ -26,19 +26,19 @@ app = Flask(__name__)
 @app.route('/', methods=['POST','GET'])
 def login():
     #Check if the user has submitted the login page form
-    if request.method == 'GET':
+    if request.method == 'POST':
         #return the page
-        if request.args.get('uname') == None and request.args.get('passwd') == None:
+        if request.form['uname'] == None and request.form['passwd'] == None:
             return render_template('index.html')
         #If one field is empty out of the two return the page asking for the correct details
-        elif request.args.get('uname') == '' or request.args.get('passwd') == '':
+        elif request.form['uname'] == '' or request.form['passwd'] == '':
             errormess = "Please fill in both fields"
             return render_template('index.html',error=errormess)
         #Otherwise collect the username and password from the form and check it.
         else:
             #Read in the username and password from the form.
-            uname = request.args.get('uname')
-            passwd = request.args.get('passwd')
+            uname = request.form['uname']
+            passwd = request.form['passwd']
             #Send the details to the function in [userauth.py] for checking
             global accntname,accntpoints,challcode,auname
             res,accntname,accntpoints,auname = uman.checkuserdetails(uname,passwd)
