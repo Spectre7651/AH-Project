@@ -93,7 +93,7 @@ def caesarcipher():
                 print(f"Incorrect Answer for Caesar Cipher {attemptanswer}")
 
                 errormess = "Incorrect Try Again"
-                return render_template("Caesar.html",name=accntname,points=uman.getpoints(auname),code=challcode,error="True",errormess=errormess)
+                return render_template("caesar.html",name=accntname,points=uman.getpoints(auname),code=challcode,error="True",errormess=errormess)
 
 @app.route('/movingkeycipher',methods=["GET"])
 def movingkeycipher():

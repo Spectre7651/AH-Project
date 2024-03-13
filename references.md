@@ -3,3 +3,5 @@ The Image named caesarencode used in caesar.html comes from [Auduino Forum](http
 Caesar wheel on launchpad.html from pdf on [nku.edu](https://www.nku.edu/~christensen/1901%20cscmat%20483%20section%202%20caesar%20ciphers.pdf) website
 
 Enigma image from [bbc history](https://www.bbc.co.uk/history/topics/enigma) 
+
+https://pythonbasics.org/flask-http-methods/ flask post method

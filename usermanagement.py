@@ -78,7 +78,7 @@ def getpoints(accountuname):
 #This calculates the leaderboard and shows where the current user is in the table (called from launchpad.html)
 def leaderboard(currentuser):
     #Setup 2D array, so that a whole user record can be moved easily during the sort
-    #Data will follow useracct = [[id,name,points],[...]]
+    #Data will follow useracct = [[accntname,points],[...]]
 
     #Setup the useracct array which is in a different format to easily move the records about the array while sorting
     useracct = []
@@ -94,20 +94,19 @@ def leaderboard(currentuser):
 
     #Perform a bubble sort to find user with the highest point score
     def bubble_sort(useracct):
-        array = useracct
-        n = len(array)
+        n = len(useracct)
         swapped = True
         while swapped == True and n >= 0:
             for i in range(n-1): #Loop over the array
-                if int(array[i][1]) < int(array[i+1][1]): #If this accounts point score is smaller than the next one..
+                if int(useracct[i][1]) < int(useracct[i+1][1]): #If this accounts point score is smaller than the next one..
                     #Swap records in the array (this swaps the whole account sub-array inn the useracct array)
-                    temp = array[i]
+                    temp = useracct[i]
                     #print(temp)
-                    array[i] = array[i+1]
-                    array[i+1] = temp
+                    useracct[i] = useracct[i+1]
+                    useracct[i+1] = temp
                     swapped = True
             n = n-1
-        return array #Return the sorted useracct array with the most user with the most points at the start of the array.
+        return useracct #Return the sorted useracct array with the most user with the most points at the start of the array.
     useracct_sorted = bubble_sort(useracct)
     confetti_flag = False
     for i in range(len(useracct_sorted)):
