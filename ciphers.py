@@ -18,14 +18,12 @@ def autorun():
     print(posmessages) #Debug
     message = random.choice(posmessages)
     print(message)
-    key = random.randint(1,26)
-    print(key) # Debug
-    return message,key
+    return message
 #------------------------
 #Cipher1 - Caesar Cipher 
 #------------------------
 def Caesarcipher():
-    message,key = autorun()
+    message = autorun()
     key = 3 #This overrides the autorun function to make the key always be 3
     encmessage = ""
     #Loop over the plaintext message.
@@ -46,7 +44,7 @@ def Caesarcipher():
 # This uses the same idea as cipher1 but adds 1 to the key for every message encoded
 # eg. AAAA --> BCDE
 def movingkeycipher():
-    message,key = autorun()
+    message = autorun()
     key = 1 #Startkey
     encmessage = ""
     for character in message:
@@ -64,7 +62,7 @@ def movingkeycipher():
 # This cipher uses the skills from the previous ciphers but adds a crib (supplied to the user) to swap the letters after 
 # decoding to find the message.
 def superencipherment():
-    message,key = autorun()
+    message = autorun()
     #Sets up a dictionary for the crib
     crib = {}
     with open("crib.txt","r") as cribfile:
