@@ -24,7 +24,7 @@ def autorun():
 #------------------------
 def Caesarcipher():
     message = autorun()
-    key = 3 #This overrides the autorun function to make the key always be 3
+    key = 3 
     encmessage = ""
     #Loop over the plaintext message.
     for character in message:
@@ -71,14 +71,14 @@ def superencipherment():
             crib[row[0]] = row[1]
     print(crib)
     #Need to find the letter positions for each character
-    pos = []
+    #pos = []
     letters = []
     for letter in message:
         for chars in range(len(alphabet)):
             if alphabet[chars] == letter:
-                pos.append(chars)
+                #pos.append(chars)
                 letters.append(letter)
-    print(f"**{pos}")
+    #print(f"**{pos}")
     print(f"**{letters}")
     #Need to swap letters for letter in crib
     halfmessage = ""
@@ -87,7 +87,6 @@ def superencipherment():
         print(newhalfchar)
         halfmessage += newhalfchar
     print(halfmessage)
-    #Encode it with ceaser shift key 1-26 random.
     encmessage = ""
     key = 1 #Startkey
     for character in halfmessage:
