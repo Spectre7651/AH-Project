@@ -46,7 +46,7 @@ def checkuserdetails(uname,passwd):
         #If the username and password matches an account:
         print(authuser_details[0][i],authuser_details[1][i])
         if uname == authuser_details[0][i] and passwd == authuser_details[1][i]:
-            return "AUTHORISED",authuser_details[2][i],authuser_details[3][i],authuser_details[1][i] #Send the ok and accountname points and username to the app.py program
+            return "AUTHORISED",authuser_details[2][i],authuser_details[3][i],authuser_details[0][i] #Send the ok and accountname points and username to the app.py program
             unf = False
             break #Dont bother to loop anymore
 
@@ -108,18 +108,16 @@ def leaderboard(currentuser):
             n = n-1
         return useracct #Return the sorted useracct array with the most user with the most points at the start of the array.
     useracct_sorted = bubble_sort(useracct)
-    confetti_flag = False
+    print(useracct_sorted)    #position = 0
     for i in range(len(useracct_sorted)):
-        if useracct_sorted[i][0] == currentuser:
+        if str(useracct_sorted[i][0]) == str(currentuser):
             pointsbehind = useracct_sorted[0][1] - useracct_sorted[i][1]
             if i == 0:
                 position = f"Congratulations You Are Number {i+1} On The Leaderboard!"
-                confetti_flag = True
             else:
                 position = f"You Are Number {i+1} On The Leaderboard. Only {pointsbehind} Points Behind The Leader {useracct_sorted[0][0]}"
-    #print(useracct_sorted,position,confetti_flag)
-    return position
-#leaderboard("test")
+            return position
+#DEBUG leaderboard("test")
 
 #This saves the new point score of the user to the userdetails.csv file
 def addpoints(targetaccountname,points):

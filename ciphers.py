@@ -15,7 +15,8 @@ def autorun():
     with open("messages.txt","r") as posmessages_file:
         for line in posmessages_file:
             posmessages.append((line.strip()).upper())
-    print(posmessages) #Debug
+    #Debug
+    print(posmessages)
     message = random.choice(posmessages)
     print(message)
     return message
@@ -95,10 +96,4 @@ def superencipherment():
         newchar = alphabet[newpos]
         encmessage += newchar
         key += 1 #Adds one to the key as every letter is encrypted
-        #print(key) #Debug
     return encmessage,message
-#debug
-
-#print(Caesarcipher())
-#print(movingkeycipher())
-#print(supercipherment())

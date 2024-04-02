@@ -44,7 +44,8 @@ def login():
             res,accntname,accntpoints,auname = uman.checkuserdetails(uname,passwd)
 
             #Debug
-            print(res,accntname) 
+            print(res,accntname)
+            print("£££££",auname) 
 
             #If the function comes back as authorised redirect the user to [launchpad.html]
             if res == "AUTHORISED":
@@ -91,13 +92,13 @@ def caesarcipher():
             else:
                 #Debug
                 print(f"Incorrect Answer for Caesar Cipher {attemptanswer}")
-
+                
                 errormess = "Incorrect Try Again"
                 return render_template("caesar.html",name=accntname,points=uman.getpoints(auname),code=challcode,error="True",errormess=errormess)
 
 @app.route('/movingkeycipher',methods=["GET"])
 def movingkeycipher():
-    #This is the same structure as the Caesar cipher but with the diffent challenge code and page
+    #This is the same structure as the Caesar cipher but with the different challenge code and page
     correctanswer = ""
     challcode = ""
     challcode,correctanswer = ciphers.movingkeycipher()
@@ -166,6 +167,7 @@ def script():
 @app.route('/favicon')
 def faviconico():
     return current_app.send_static_file('favicon.png')
+
 #Caesar Encode Img for tutorial
 @app.route('/caesarencodeimg')
 def caesarencodeimg():
@@ -175,10 +177,12 @@ def caesarencodeimg():
 @app.route('/caesarwheelimg')
 def caesarwheelimg():
     return current_app.send_static_file('caesarwheel.png')
+
 #The image for the moving key launchpad
 @app.route('/movingkeyimg')
 def movingkeyimg():
     return current_app.send_static_file('enigma.jpg')
+
 #The note I made to give the crib to the user
 @app.route('/cribnote')
 def cribnote():
