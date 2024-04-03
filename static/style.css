@@ -111,6 +111,7 @@ input{
     float:left;
   }
 
+  /*This codes for the mainbody of all the pages*/
   #mainbody{
     position:absolute;
     top: 15%;
