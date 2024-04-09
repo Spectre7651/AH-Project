@@ -71,19 +71,19 @@ def launchpad():
 @app.route('/caesarcipher',methods=["GET"])
 def caesarcipher():
     #This sets up and grabs the code to be broken and the correct answer from [ciphers.py]
-    correctanswer = ""
-    challcode = ""
+    #correctanswer = ""
+    #challcode = ""
     challcode,correctanswer = ciphers.Caesarcipher()
     if request.method == "GET":
         #This checks is the answer field is empty and if so renders the whole page with the tutorial first
-        if request.args.get('answerattempt') == None:
+        if (request.args.get('answerattempt')) == None:
             return render_template("caesar.html",name=accntname,points=uman.getpoints(auname),code=challcode, error="")
 
         #Otherwise the answer field has been filled in so we need to check if the answer is correct
         else:
             attemptanswer = request.args.get('answerattempt')
             #If the answer is correct then redirect to the [win.html] page and fill in the info needed
-            if str(attemptanswer).upper() == str(correctanswer):
+            if str(attemptanswer) == str(correctanswer):
                 print(f"Correct Answer for Caesar Cipher {attemptanswer}")
                 #Add 1000 points to the users account
                 uman.addpoints(auname,1000)
@@ -107,7 +107,7 @@ def movingkeycipher():
             return render_template("movingkey.html",name=accntname,points=uman.getpoints(auname),code=challcode, error="")
         else:
             attemptanswer = request.args.get('answerattempt')
-            if str(attemptanswer).upper() == str(correctanswer):
+            if str(attemptanswer).upper() == str(correctanswer).upper():
                 print(f"Correct Answer for Moving Key Cipher {attemptanswer}")
                 uman.addpoints(auname,2500)
                 return render_template("win.html",name=accntname,points=uman.getpoints(auname),challengename="Moving Key Cipher",challengepoints="2500")
@@ -131,7 +131,7 @@ def superenciphercipher():
         else:
             attemptanswer = request.args.get('answerattempt')
             #If the answer is correct then redirect to the [win.html] page and fill in the info needed
-            if str(attemptanswer).upper() == str(correctanswer):
+            if str(attemptanswer).upper() == str(correctanswer).upper():
                 print(f"Correct Answer for SuperEncipherment Cipher {attemptanswer}")
                 #Add 1000 points to the users account
                 uman.addpoints(auname,1000)
@@ -176,7 +176,7 @@ def caesarencodeimg():
 #The Image for the launchpad caesar section
 @app.route('/caesarwheelimg')
 def caesarwheelimg():
-    return current_app.send_static_file('caesarwheel.png')
+    return current_app.send_static_file('caesarwheel.jpg')
 
 #The image for the moving key launchpad
 @app.route('/movingkeyimg')

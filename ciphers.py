@@ -7,24 +7,26 @@ import csv
 
 #Setup alphabet as a global variable so that you dont need to pass into each function
 global alphabet
-alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+#alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+alphabet = "abcdefghijklmnopqrstuvwxyz"
 
 #AutoRun - this selects the message which is encrypted for the user. It also selects a key for the other functions although this is sometimes overriden
 def autorun():
     posmessages = []
     with open("messages.txt","r") as posmessages_file:
         for line in posmessages_file:
-            posmessages.append((line.strip()).upper())
+            posmessages.append((line.strip()))
     #Debug
     print(posmessages)
     message = random.choice(posmessages)
     print(message)
-    return message
+    return str(message)
 #------------------------
 #Cipher1 - Caesar Cipher 
 #------------------------
 def Caesarcipher():
     message = autorun()
+    print(message)
     key = 3 
     encmessage = ""
     #Loop over the plaintext message.
@@ -38,6 +40,7 @@ def Caesarcipher():
         #Add the character to the encrypted message
         encmessage += newchar
     #Give the encrypted message back to [app.py]
+    print(message)
     return encmessage,message
 #------------------------------------
 #Cipher2 - Moving Key Caesar Cipher

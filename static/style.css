@@ -115,7 +115,7 @@ input{
   #mainbody{
     position:absolute;
     top: 15%;
-    height:75%;
+    height:85%;
     width: 95%;
     left: 2.5%;
 
@@ -129,6 +129,7 @@ input{
     border: 2px white;
     border-radius: 10px;
     margin:1%;
+    height:100%;
   }
   #mb-img{
     height:auto;
