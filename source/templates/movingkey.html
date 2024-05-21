@@ -1,0 +1,75 @@
+<!--Alfie Ford -->
+<!--This is the html page for the moving key cipher challenge which uses the same structure as the ceaser cipher page
+but has just been modified for the moving key cipher-->
+
+<!--General Setup-->
+<!DOCTYPE html>
+<html lang="en-GB" id="main">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/style.css">
+	<script src="/script.js"></script> 
+	<script>
+		function autohidetutorial(){
+    		if ("{{error}}" == "True") {
+        		var x = document.getElementById("tutorial");
+        		x.style.display = "none"
+				var errormess = "Incorrect Try Again"
+        		}
+		}
+	</script>
+	<link rel="icon" type="image/x-icon" href="/favicon">
+	<title>Moving Key - CipherSchool</title>
+</head>
+<!--Main Body Code-->
+<body onload="autohidetutorial()">
+	<!--This looks after the top header with the user details and buttons-->
+	<div id="topheader">
+		<div id="c-th-title">
+			<h3>The Moving Key Cipher</h3>
+		</div>
+		<div id="c-th-tutorial">
+			<button onclick="showhidetutorial()"><h5>Show/Hide Tutorial</h5></button>
+		</div>
+		<div id="c-th-homebutton">
+			<button onclick="location.href = '/launchpad'"><h5>Return Home</h5></button>
+		</div>
+		<div id="c-th-name">
+			<h4>{{name}}</h4>
+		</div>
+	</div>
+	<!--This div holds the main challenge-->
+	<div id="challenge-body">
+		<div id="challenge-side">
+			<h2>Crack the Code to reveal the flag</h2>
+
+			<h4>Here is the code:</h4>
+			<h3>{{code}}</h3>
+		</div>
+		<div id="challenge-side">
+			<h4>{{errormess}}</h4>
+ 			<form action="#" method="GET" autocomplete="off" accept-charset="utf-8">
+				<input type="text" name="answerattempt" placeholder="Enter the flag" id="answerattempt"><br>
+				<input type="submit" id="attemptanswer-submit" label="Submit Flag" value="Submit Flag">
+			</form>
+		</div>
+	</div>
+	<!--This is the code for the tutorial that pops up when the page is opened to help the user-->
+	<div id="tutorial">
+		<div id="tutorial-left">
+		<h2>Welcome to the Moving Key Cipher Challenge!</h2>
+		<br>
+		<h4>Since you broke the last cipher so easily we have decided to give you more of a challenge!<br>
+			One of our cryptography team says that they are just increasing the key for every letter that is encoded<br> 
+			For instance the message "AAAA" would become "BCDE" as the key starts at one and increases by one every letter that is encoded, see of you can crak this one!</h4>
+			<br>
+			<h4>Good luck!</h4>
+			<br><br>
+			<!--This hides the tutorial when the button is pressed-->
+			<button onclick="showhidetutorial()"><h3>  Lets Go!  </h3></button>
+		</div>	
+		<div id="tutorial-right">
+		</div>
+	</div>
+</body>
+</html>

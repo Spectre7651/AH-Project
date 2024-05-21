@@ -1,0 +1,386 @@
+/*This is the css for the webapp */
+
+
+/*This sets up the background image and font for the website as a whole*/
+#main {
+background-image: url("/background");
+background-repeat: no-repeat;
+background-size: cover;
+}
+/* This sets the body font for the site*/
+body {
+font-family:Arial, sans-serif;
+}
+/* This deals with the top headers across the site*/
+#topheader{
+  position: absolute;
+  width: 95%;
+  left: 2.5%;
+  top: 2.5%;
+  background-color: lightgrey;
+  text-align: left ;
+  border: 2px white;
+  border-radius: 10px;
+}
+
+/* This section codes for the login screen */
+#login-loginform {
+    position: absolute;
+    top: 70%;
+    width: 33%;
+    left: 33%;
+    top: 20%;
+    background-color: lightgrey;
+    text-align: center ;
+    border: 2px white;
+    border-radius: 10px;
+  }
+form {
+  padding: 20px
+  }
+input{
+    width: 50%;
+    padding: 5px ;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid darkgrey;
+    outline: none;
+    float: center;
+    font-family:Arial, sans-serif;
+  }
+#h2-login {
+  text-align: center ;
+  font-family:Arial, sans-serif;
+  }
+#submit{
+   width:20%;
+   padding:5px ;
+   margin: 8px 0;
+   box-sizing: border-box;
+   border: 1px solid darkgrey;
+   outline: none;
+   float: center;
+   font-family: Arial,sans-serif;
+  }
+  
+  input:focus {
+    background-color: lightcyan;
+  }
+  /* This section codes for the lauchpad page*/
+
+  #th-title{
+    width:50%;
+    float:left;
+    margin-left:1%;
+  }
+  #th-points{
+    width:25%;
+    float:left;
+    text-align: right;
+  }
+  #th-logout{
+    width:10%;
+    float:right;
+  }
+  #th-logout-form{
+    width:24%;
+    float:right;
+  }
+  #leaderboard{
+    position: absolute;
+    top:2.5%;
+    width:95%;
+    left:2.5%;
+    height:10%;
+    background-image: linear-gradient(
+      45deg,
+      magenta,
+      rebeccapurple,
+      dodgerblue
+    );
+    opacity: 1;
+    border:0px;
+  }
+  #leaderboard h2{
+    width:80%;
+    float:left;
+  }
+  #leaderboard form{
+    height:100%;
+    width:15%;
+    float:left;
+  }
+
+  /*This codes for the mainbody of all the pages*/
+  #mainbody{
+    position:absolute;
+    top: 15%;
+    height:85%;
+    width: 95%;
+    left: 2.5%;
+
+  }
+
+  #mb-column{
+    width:30%;
+    float:left;
+    background-color: lightgrey;
+    text-align: center ;
+    border: 2px white;
+    border-radius: 10px;
+    margin:1%;
+    height:100%;
+  }
+  #mb-img{
+    height:auto;
+    width: 75%;
+  }
+
+  #mb-desc{
+    text-align:left;
+    size:20px;
+    margin:2.5%;
+  }
+  /*General Tutorial Div Code for the left and right elements*/
+  #tutorial-left{
+    margin-top:1%;
+    width:55%;
+    float:left;
+  }
+  #tutorial-right{
+    margin-top:5%;
+    width:45%;
+    float:left;
+    align-items:center;
+  }
+  /* Ceaser cipher page */
+  #c-th-title{
+    width:65%;
+    float:left;
+    margin:2px;
+    margin-left:2%;
+    
+  } 
+  #c-th-homebutton{
+    width:10%;
+    float:left;
+    margin:2px;
+  }
+  #c-th-name{
+    width:10%;
+    float:left;
+    margin:2px;
+    text-align:center;
+  }
+  
+  #c-th-tutorial{
+    width:10%;
+    float:left;
+    margin:2px;
+  }
+
+  #c-encimg{
+    width:100%;
+    height:fit-content;
+  }
+  /*Challenge Page CSS*/
+  #tutorial{
+    position:absolute;
+    display:block;
+    top: 15%;
+    height:80%;
+    width: 95%;
+    left: 2.5%;
+    right: 2.5%;
+    background-color: lightgrey;
+    text-align: left ;
+    border: 2px white;
+    margin-top:1%;
+    border-radius: 10px;
+  }
+  #tutorial button{
+    margin-left:5%;
+    width:25%;
+  }
+
+  #tutorial h2{
+    margin:1%;
+    margin-bottom:0%;
+  }
+  #tutorial h4{
+    margin:1%;
+    margin-bottom:0%;
+  }
+
+  #challenge-body{
+    position:absolute;
+    display:block;
+    top: 15%;
+    height:80%;
+    width: 95%;
+    left: 2.5%;
+    right:2.5%;
+    background-color: lightgrey;
+    text-align: left;
+    margin-top:1%;
+    border: 2px white;
+    border-radius: 10px;
+  }
+
+  #challenge-side{
+    margin-top:1%;
+    width:50%;
+    float:left;
+  }
+  #challenge-right{
+    margin-top:1%;
+    width:50%;
+    float:left;
+  }
+  
+
+/*Alternative screen size css (just removes floats*/
+@media screen and (max-width:600px) {
+
+    /* This section codes for the lauchpad page*/
+    #topheader{
+      margin-bottom: 10px;
+    }
+    #th-title{
+      width:100%;
+      float:inline;
+      margin-left:1%;
+    }
+    #th-points{
+      width:100%;
+      float:inline;
+      text-align: center;
+    }
+    #th-logout{
+      width:100%;
+      float:inline;
+    }
+    #th-logout-form{
+      width:100%;
+      float:inline;
+    }
+  
+    #mainbody{
+      display:block;
+      height:100%;
+      left: 2.5%;
+  
+    }
+  
+    #mb-column{
+      width:100%;
+      background-color: lightgrey;
+      text-align: center ;
+      border: 2px white;
+      border-radius: 10px;
+      margin:1%;
+    }
+    #mb-img{
+      height:auto;
+      width: 50%;
+    }
+  
+    #mb-desc{
+      text-align:left;
+      size:20px;
+      margin:2.5%;
+    }
+    /*General Tutorial Div Code for the left and right elements*/
+    #tutorial-left{
+      margin-top:1%;
+      width:100%;
+      float:inline;
+    }
+    #tutorial-right{
+      margin-top:5%;
+      width:100%;
+      float:inline;
+      align-items:center;
+    }
+    /* Ceaser cipher page */
+    #c-th-title{
+      width:100%;
+      float:inline;
+      margin:2px;
+      
+    } 
+    #c-th-homebutton{
+      width:100%;
+      margin:2px;
+    }
+    #c-th-name{
+      width:100%;
+      float:inline;
+      margin:2px;
+      text-align:center;
+    }
+    
+    #c-th-tutorial{
+      width:100%;
+      float:inline;
+      margin:2px;
+    }
+  
+    #c-encimg{
+      width:50%;
+      height:fit-content;
+    }
+    /*Challenge Page CSS*/
+    #tutorial{
+      position:absolute;
+      display:block;
+      height:50%;
+      width: 95%;
+      left: 2.5%;
+      right: 2.5%;
+      background-color: lightgrey;
+      text-align: left ;
+      border: 2px white;
+      margin-top:1%;
+      border-radius: 10px;
+    }
+    #tutorial button{
+      margin-left:5%;
+      width:25%;
+    }
+  
+    #tutorial h2{
+      margin:1%;
+      margin-bottom:0%;
+    }
+    #tutorial h4{
+      margin:1%;
+      margin-bottom:0%;
+    }
+  
+    #challenge-body{
+      position:absolute;
+      display:block;
+      top: 15%;
+      height:80%;
+      width: 95%;
+      left: 2.5%;
+      right:2.5%;
+      background-color: lightgrey;
+      text-align: left;
+      margin-top:1%;
+      border: 2px white;
+      border-radius: 10px;
+    }
+  
+    #challenge-side{
+      margin-top:1%;
+      width:50%;
+      float:left;
+    }
+    #challenge-right{
+      margin-top:1%;
+      width:50%;
+      float:left;
+    }
+}
