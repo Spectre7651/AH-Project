@@ -1,28 +1,6 @@
-# Alfie Ford - AH Project Repository
+# AH Project
 
-## This is a daily sync of my laptop files for the project.
+This is the code for my overcomplicated Advanced Higher Computing Project.
+The porject itself is an website where students can login to and completed code breaking challenges
 
-
-### Files:
-* ciphers.py is a implementation of the three ciphers i'm using for this project
-* app.py is the main webstack for the project (run this to get the server)
-* messages.txt is the possible messages the program might encrypt for the user.
-* The directory "templates" holds the html for the project.
-* crib.txt holds the crib for the superencipherment mode of the program
-* crib(hr).txt is the human readable version of the crib with actaul letters not numbers
-* userauth.py checks the user details and scores etc
-* userdetails.csv stores the account details
-
-
-## Writeup
-[Writeup of the project in gdocs](https://docs.google.com/document/d/1UsQqSsPSjJEm_fAsduAVPTBzM08rGLCWtKD6Onn9WX8/edit?usp=sharing)
-
-### Links
-* [Project Plan](https://docs.google.com/document/d/1h5udJEeES8V8zh6XGXwm2H_6FQNdKKWM5wVFrd1cyIo/edit?usp=sharing) holds all the planning and specs for the project.
-* [Flask Reference](https://www.geeksforgeeks.org/flask-tutorial/), this helps me with the sdd-wdd bridge
-* [W3Schools Reference](https://www.w3schools.com/python/default.asp), as useful as always
-* [Flask HTTP](https://www.geeksforgeeks.org/flask-http-method/), HTTP GET method docs
-* [Confetti Effect](https://www.npmjs.com/package/canvas-confetti), The best css effect!
-
-
-### For References see references.md
+The code is mostly python and html using flask as a web server
